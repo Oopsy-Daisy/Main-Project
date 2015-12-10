@@ -11,6 +11,10 @@ import java.awt.Graphics2D;
 
 public class Typing extends JPanel
 {  
+  //Need to import files into an arrayList of lessons
+  //Setup function to display and run typing lessons
+  //Include keyListeners
+  
   String line;
   public Typing()
   {

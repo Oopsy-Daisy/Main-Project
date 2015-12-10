@@ -10,5 +10,7 @@ import java.awt.event.*;
 import java.awt.Graphics2D;
 
 public class Challenges
-{   
+{
+  //Variables
+  //Method to run challenge; creates typing challenge including corresponding graphics for user
 }

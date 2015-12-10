@@ -11,4 +11,7 @@ import java.awt.Graphics2D;
 
 public class Garden
 {   
+  //Variables including seeds available and the garden size
+  //Display Garden Plot
+  //Methods to allow the user to plant, fertilizer and dig up
 }
