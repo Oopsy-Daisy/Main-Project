@@ -11,7 +11,10 @@ import java.awt.Graphics2D;
 
 public class Main
 {   
-  public static void main(String[] args) throws InterruptedException
+  //Overall Variables from Class Diagram
+  //Option Methods
+  //Methods for the interaction of sub methods; final integration step
+  public static void main(String[] args)
   {
   }
 }
