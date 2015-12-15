@@ -16,6 +16,11 @@ local.properties
 .settings/
 .loadpath
 *.class
+<<<<<<< HEAD
+=======
+*.java~
+*.java
+>>>>>>> origin/master
 
 # External tool builders
 .externalToolBuilders/
