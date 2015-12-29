@@ -19,7 +19,10 @@ public class Typing extends JPanel
   String line;
   boolean shiftPressed=false;
   private Main ba;
+  int charNumb=0;
+  boolean typed=false;
   String typedChar="kjsfdhsg";
+  int x=25;
   ArrayList<String>lessons=new ArrayList<String>();  
   
   public Typing(Main ba)
@@ -52,6 +55,7 @@ public class Typing extends JPanel
   }
   
   public void keyReleased(KeyEvent e) {
+    typed=true;
     if (e.getKeyCode()==KeyEvent.VK_SHIFT)
     {shiftPressed=false;}
     if(e.getKeyCode()==KeyEvent.VK_SPACE)
@@ -250,7 +254,6 @@ public class Typing extends JPanel
     {typedChar="/";}///
     if (e.getKeyCode()==KeyEvent.VK_SLASH && shiftPressed==true)
     {typedChar="?";}//?
-    
   }
   public void keyPressed(KeyEvent e) {
     if (e.getKeyCode()==KeyEvent.VK_SHIFT)
@@ -263,33 +266,37 @@ public class Typing extends JPanel
   
   public void paint(Graphics2D g) {
     int i=25;
-    int x;
     for (int count=0;count<lessons.size();count++)
     {
       g.drawString(lessons.get(count), 25, i);
       i+=14;
     } 
-    i=500;
-    for (int count=0;count<lessons.size();count++)//which line?
+//    for (int count=1;count<lessons.size();count+=2)//which line? (disregard lesson titles)
+//    {
+//      for (int count2=0;count2<lessons.get(1).length();count2++)//which char in the line?
+//      {
+    if (charNumb<lessons.get(1).length())
     {
-      for (int count2=0;count2<lessons.get(count).length();count2++)//which char in the line?
-      {
-        if (typedChar.equals(lessons.get(count).substring(count2,count2+1))==true)
+        if (typedChar.equals(lessons.get(1).substring(charNumb,charNumb+1))==true && typed==true)
         {
           g.setColor(Color.GREEN);
-          g.drawString(lessons.get(count).substring(count2,count2+1), 25, i);
-          i+=14;
+          g.drawString(lessons.get(1).substring(charNumb,charNumb+1), x, 500);
+          x+=8;
+          charNumb++;
+          typed=false;
         }
-        else
+        if (typedChar.equals(lessons.get(1).substring(charNumb,charNumb+1))==false && typed==true)
         {
           g.setColor(Color.RED);
-          g.drawString(lessons.get(count).substring(count2,count2+1), 25, i);
-          i+=14;
+          g.drawString(lessons.get(1).substring(charNumb,charNumb+1), x, 500);
+          x+=8;
+          charNumb++;
+          typed=false;
         }
-          
-      }  
     }
   }
+//    }
+//  }
   
 //  public static void main(String[] args) throws InterruptedException {
 //    JFrame frame = new JFrame("Animation");
