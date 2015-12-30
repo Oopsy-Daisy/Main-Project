@@ -10,6 +10,7 @@ import java.awt.event.*;
 import java.awt.Graphics2D;
 import java.util.ArrayList;
 
+
 public class Typing
 {  
   //Need to import files into an arrayList of lessons
@@ -23,7 +24,8 @@ public class Typing
   boolean typed=false;
   String typedChar="kjsfdhsg";
   int x=25;
-  ArrayList<String>lessons=new ArrayList<String>();  
+  ArrayList<String>lessons=new ArrayList<String>(); 
+  ArrayList<ColourChar> colourChars = new ArrayList<ColourChar>();
   
   public Typing(Main ba)
   {
@@ -264,17 +266,14 @@ public class Typing
   public void keyTyped(KeyEvent e) {
   }
   
-  static boolean FirstTime = true;
-  
   public void paint(Graphics2D g) {
-    if (FirstTime)
-    {int i=25;
+    int i=25;
+    int fontSize = 18;
+    g.setFont(new Font("TimesRoman", Font.PLAIN, fontSize));
     for (int count=0;count<lessons.size();count++)
     {
       g.drawString(lessons.get(count), 25, i);
       i+=14;
-    }
-    FirstTime = false;
     }
 //    for (int count=1;count<lessons.size();count+=2)//which line? (disregard lesson titles)
 //    {
@@ -284,19 +283,28 @@ public class Typing
     {
         if (typedChar.equals(lessons.get(1).substring(charNumb,charNumb+1))==true && typed==true)
         {
-          g.setColor(Color.GREEN);
-          g.drawString(lessons.get(1).substring(charNumb,charNumb+1), x, 500);
-          x+=8;
+//          g.setColor(Color.GREEN);
+//          g.drawString(lessons.get(1).substring(charNumb,charNumb+1), x, 500);
+//          x+=8;
           charNumb++;
           typed=false;
+          colourChars.add(new ColourChar(lessons.get(1).charAt(charNumb-1), Color.GREEN));
         }
         if (typedChar.equals(lessons.get(1).substring(charNumb,charNumb+1))==false && typed==true)
         {
-          g.setColor(Color.RED);
-          g.drawString(lessons.get(1).substring(charNumb,charNumb+1), x, 500);
-          x+=8;
+//          g.setColor(Color.RED);
+//          g.drawString(lessons.get(1).substring(charNumb,charNumb+1), x, 500);
+//          x+=8;
           charNumb++;
           typed=false;
+          colourChars.add(new ColourChar(lessons.get(1).charAt(charNumb-1), Color.RED));
+        }
+        x=25;
+        for (int i1 = 0; i1 < colourChars.size(); i1++)
+        {
+          g.setColor(colourChars.get(i1).theColour);
+          g.drawString(""+colourChars.get(i1).theChar, x, 500);
+          x+=8;
         }
     }
   }

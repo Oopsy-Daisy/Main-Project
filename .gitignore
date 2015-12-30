@@ -19,7 +19,6 @@ local.properties
 <<<<<<< HEAD
 =======
 *.java~
-*.java
 >>>>>>> origin/master
 
 # External tool builders
