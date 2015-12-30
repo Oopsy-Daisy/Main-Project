@@ -10,7 +10,7 @@ import java.awt.event.*;
 import java.awt.Graphics2D;
 import java.util.ArrayList;
 
-public class Typing extends JPanel
+public class Typing
 {  
   //Need to import files into an arrayList of lessons
   //Setup function to display and run typing lessons
@@ -264,13 +264,18 @@ public class Typing extends JPanel
   public void keyTyped(KeyEvent e) {
   }
   
+  static boolean FirstTime = true;
+  
   public void paint(Graphics2D g) {
-    int i=25;
+    if (FirstTime)
+    {int i=25;
     for (int count=0;count<lessons.size();count++)
     {
       g.drawString(lessons.get(count), 25, i);
       i+=14;
-    } 
+    }
+    FirstTime = false;
+    }
 //    for (int count=1;count<lessons.size();count+=2)//which line? (disregard lesson titles)
 //    {
 //      for (int count2=0;count2<lessons.get(1).length();count2++)//which char in the line?
