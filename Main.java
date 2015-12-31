@@ -7,11 +7,27 @@ import java.awt.image.BufferedImage;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.*;
+import javax.swing.JOptionPane;
+import javax.swing.JDialog;
+import javax.swing.JButton;
+import javax.swing.JRadioButton;
+import javax.swing.ButtonGroup;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
+import javax.swing.BoxLayout;
+import javax.swing.Box;
+import javax.swing.BorderFactory;
+import javax.swing.border.Border;
+import javax.swing.JTabbedPane;
+import javax.swing.JPanel;
+import javax.swing.JFrame;
+import java.beans.*; //Property change stuff
 
 public class Main extends JPanel
 {   
   //Overall Variables from Class Diagram
   private Typing type = new Typing(this);
+  private static int lessonNumb=1;
   
   public Main ()
   {
@@ -31,12 +47,13 @@ public class Main extends JPanel
     setFocusable(true); 
   }
   
+  
   @Override
   public void paint(Graphics g) {
     super.paint(g);
     Graphics2D g2d = (Graphics2D) g;
     g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-    type.paint(g2d);
+    type.paint(g2d,lessonNumb);
   }
   //Option Methods
   //Methods for the interaction of sub methods; final integration step
@@ -47,7 +64,9 @@ public class Main extends JPanel
     frame.setSize(1280, 984);
     frame.setVisible(true);
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    
+    Object[] possibilities = {"1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16"};
+    String s = (String)JOptionPane.showInputDialog(frame,"CHOOSE A NUMBER U CLOWN","Customized Dialog", JOptionPane.PLAIN_MESSAGE,null,possibilities,"1");
+    lessonNumb=Integer.parseInt(s);
     while (true) {
       ba.repaint();
       Thread.sleep(10);
