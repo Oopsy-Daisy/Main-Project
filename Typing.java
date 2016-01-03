@@ -24,6 +24,7 @@ public class Typing
   boolean typed=false;
   String typedChar="kjsfdhsg";
   int x=25;
+  int lessonsDone=0;
   ArrayList<String>lessons=new ArrayList<String>(); 
   ArrayList<ColourChar> colourChars = new ArrayList<ColourChar>();
   
@@ -54,6 +55,11 @@ public class Typing
     {
       //Error message
     }
+  }
+  
+  public int getLessonsDone()
+  {
+    return lessonsDone;
   }
   
   public void keyReleased(KeyEvent e) {
@@ -277,31 +283,45 @@ public class Typing
     
     if (charNumb<lessons.get(t*2-1).length())
     {
-        if (typedChar.equals(lessons.get(t*2-1).substring(charNumb,charNumb+1))==true && typed==true)
-        {
+      if (typedChar.equals(lessons.get(t*2-1).substring(charNumb,charNumb+1))==true && typed==true)
+      {
 //          g.setColor(Color.GREEN);
 //          g.drawString(lessons.get(1).substring(charNumb,charNumb+1), x, 500);
 //          x+=8;
-          charNumb++;
-          typed=false;
+        charNumb++;
+        typed=false;
+        if (lessons.get(t*2-1).substring(charNumb-1,charNumb).equals(" "))
+        {
+          colourChars.add(new ColourChar('_', Color.GREEN));
+        }
+        else
+        { 
           colourChars.add(new ColourChar(lessons.get(t*2-1).charAt(charNumb-1), Color.GREEN));
         }
-        if (typedChar.equals(lessons.get(t*2-1).substring(charNumb,charNumb+1))==false && typed==true)
-        {
+      }
+      if (typedChar.equals(lessons.get(t*2-1).substring(charNumb,charNumb+1))==false && typed==true)
+      {
 //          g.setColor(Color.RED);
 //          g.drawString(lessons.get(1).substring(charNumb,charNumb+1), x, 500);
 //          x+=8;
-          charNumb++;
-          typed=false;
+        charNumb++;
+        typed=false;
+        if (lessons.get(t*2-1).substring(charNumb-1,charNumb).equals(" "))
+        {
+          colourChars.add(new ColourChar('_', Color.RED));
+        }
+        else
+        {
           colourChars.add(new ColourChar(lessons.get(t*2-1).charAt(charNumb-1), Color.RED));
         }
-        x=25;
-        for (int i1 = 0; i1 < colourChars.size(); i1++)
-        {
-          g.setColor(colourChars.get(i1).theColour);
-          g.drawString(""+colourChars.get(i1).theChar, x, 500);
-          x+=10;
-        }
+      }
+    }
+    x=25;
+    for (int i1 = 0; i1 < colourChars.size(); i1++)
+    {
+      g.setColor(colourChars.get(i1).theColour);
+      g.drawString(""+colourChars.get(i1).theChar, x, 500);
+      x+=10;
     }
   }   
 }
