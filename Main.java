@@ -65,7 +65,7 @@ public class Main extends JPanel
     frame.setVisible(true);
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     Object[] possibilities = {"1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16"};
-    String s = (String)JOptionPane.showInputDialog(frame,"CHOOSE A NUMBER U CLOWN","Customized Dialog", JOptionPane.PLAIN_MESSAGE,null,possibilities,"1");
+    String s = (String)JOptionPane.showInputDialog(frame,"CHOOSE A NUMBER U CLOWN","Select a Lesson", JOptionPane.PLAIN_MESSAGE,null,possibilities,"1");
     lessonNumb=Integer.parseInt(s);
     while (true) {
       ba.repaint();
