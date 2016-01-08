@@ -22,12 +22,15 @@ import javax.swing.JTabbedPane;
 import javax.swing.JPanel;
 import javax.swing.JFrame;
 import java.beans.*; //Property change stuff
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class Main extends JPanel
 {   
   //Overall Variables from Class Diagram
   private Typing type = new Typing(this);
-  private static int lessonNumb=1;
+  public static int lessonNumb=0;
+  public static int lessonsDone=0;
   
   public Main ()
   {
@@ -65,7 +68,7 @@ public class Main extends JPanel
     frame.setVisible(true);
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     Object[] possibilities = {"1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16"};
-    String s = (String)JOptionPane.showInputDialog(frame,"CHOOSE A NUMBER U CLOWN","Select a Lesson", JOptionPane.PLAIN_MESSAGE,null,possibilities,"1");
+    String s = (String)JOptionPane.showInputDialog(frame,"CHOOSE A NUMBER U CLOWN FINE SIR","Select a Lesson", JOptionPane.PLAIN_MESSAGE,null,possibilities,"1");
     lessonNumb=Integer.parseInt(s);
     while (true) {
       ba.repaint();
