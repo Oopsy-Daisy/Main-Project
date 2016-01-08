@@ -9,8 +9,8 @@ import java.awt.event.KeyListener;
 import java.awt.event.*;
 import java.awt.Graphics2D;
 import java.util.ArrayList;
-//import java.util.Timer;
-//import java.util.TimerTask;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class Challenges
 {
@@ -26,6 +26,8 @@ public class Challenges
   int x=25;
   ArrayList<String>lessons=new ArrayList<String>(); 
   ArrayList<ColourChar> colourChars = new ArrayList<ColourChar>();
+  long startTime;
+  long elapsedTime = 0L;
   
   public Challenges(Main ba)
   {
@@ -266,57 +268,61 @@ public class Challenges
   public void keyTyped(KeyEvent e) {
   }
   
-  public void paint(Graphics2D g) {
-    int i=25;
-    int fontSize = 18;
-    g.setFont(new Font("Courier New", Font.PLAIN, fontSize));
-    for (int count=0;count<lessons.size();count++)
-    {
-      g.drawString(lessons.get(count), 25, i);
-      i+=14;
-    }
-    
-    if (charNumb<lessons.get(1).length())
-    {
-      if (typedChar.equals(lessons.get(1).substring(charNumb,charNumb+1))==true && typed==true)
+    public void paint(Graphics2D g) {
+      startTime = System.currentTimeMillis();
+      while (elapsedTime < 2*60*1000) {
+      int i=25;
+      int fontSize = 18;
+      g.setFont(new Font("Courier New", Font.PLAIN, fontSize));
+      for (int count=0;count<lessons.size();count++)
       {
+        g.drawString(lessons.get(count), 25, i);
+        i+=14;
+      }
+      
+      if (charNumb<lessons.get(1).length())
+      {
+        if (typedChar.equals(lessons.get(1).substring(charNumb,charNumb+1))==true && typed==true)
+        {
 //          g.setColor(Color.GREEN);
 //          g.drawString(lessons.get(1).substring(charNumb,charNumb+1), x, 500);
 //          x+=8;
-        charNumb++;
-        typed=false;
-        if (lessons.get(1).substring(charNumb-1,charNumb).equals(" "))
+          charNumb++;
+          typed=false;
+          if (lessons.get(1).substring(charNumb-1,charNumb).equals(" "))
+          {
+            colourChars.add(new ColourChar('_', Color.GREEN));
+          }
+          else
+          { 
+            colourChars.add(new ColourChar(lessons.get(1).charAt(charNumb-1), Color.GREEN));
+          }
+        }
+        if (typedChar.equals(lessons.get(1).substring(charNumb,charNumb+1))==false && typed==true)
         {
-          colourChars.add(new ColourChar('_', Color.GREEN));
-        }
-        else
-        { 
-          colourChars.add(new ColourChar(lessons.get(1).charAt(charNumb-1), Color.GREEN));
-        }
-      }
-      if (typedChar.equals(lessons.get(1).substring(charNumb,charNumb+1))==false && typed==true)
-      {
 //          g.setColor(Color.RED);
 //          g.drawString(lessons.get(1).substring(charNumb,charNumb+1), x, 500);
 //          x+=8;
-        charNumb++;
-        typed=false;
-        if (lessons.get(1).substring(charNumb-1,charNumb).equals(" "))
-        {
-          colourChars.add(new ColourChar('_', Color.RED));
+          charNumb++;
+          typed=false;
+          if (lessons.get(1).substring(charNumb-1,charNumb).equals(" "))
+          {
+            colourChars.add(new ColourChar('_', Color.RED));
+          }
+          else
+          {
+            colourChars.add(new ColourChar(lessons.get(1).charAt(charNumb-1), Color.RED));
+          }
         }
-        else
+        x=25;
+        for (int i1 = 0; i1 < colourChars.size(); i1++)
         {
-          colourChars.add(new ColourChar(lessons.get(1).charAt(charNumb-1), Color.RED));
+          g.setColor(colourChars.get(i1).theColour);
+          g.drawString(""+colourChars.get(i1).theChar, x, 500);
+          x+=10;
         }
       }
-      x=25;
-      for (int i1 = 0; i1 < colourChars.size(); i1++)
-      {
-        g.setColor(colourChars.get(i1).theColour);
-        g.drawString(""+colourChars.get(i1).theChar, x, 500);
-        x+=10;
-      }
-    }
-  } 
+    } 
+    elapsedTime = (System.currentTimeMillis() - startTime);
+  }
 }
