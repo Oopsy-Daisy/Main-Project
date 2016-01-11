@@ -65,7 +65,7 @@ public class Main extends JPanel
     Main ba = new Main();
     Menu demo = new Menu();
     frame.setJMenuBar(demo.createMenuBar());
-    frame.setContentPane(demo.createContentPane());
+//    frame.setContentPane(demo.createContentPane());
     frame.add(ba);
     frame.setSize(1280, 984);
     frame.setVisible(true);
