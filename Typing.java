@@ -1,14 +1,15 @@
 import java.awt.*;
-import javax.swing.*;
-import javax.imageio.*;
+//import javax.swing.*;
+//import javax.imageio.*;
 import java.io.*;
-import java.awt.Image;
-import java.awt.image.BufferedImage;
+//import java.awt.Image;
+//import java.awt.image.BufferedImage;
 import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.*;
+//import java.awt.event.KeyListener;
+//import java.awt.event.*;
 import java.awt.Graphics2D;
 import java.util.ArrayList;
+import java.text.DecimalFormat;
 
 
 public class Typing
@@ -22,11 +23,15 @@ public class Typing
   private Main ba;
   int charNumb=0;
   boolean typed=false;
+  boolean lessonCounted=false;
   String typedChar="kjsfdhsg";
   int x=25;
   
   ArrayList<String>lessons=new ArrayList<String>(); 
   ArrayList<ColourChar> colourChars = new ArrayList<ColourChar>();
+  double correctChars=0;
+  double incorrectChars=0;
+  double acc=0;
   
   public Typing(Main ba)
   {
@@ -287,13 +292,14 @@ public class Typing
 //          x+=8;
           charNumb++;
           typed=false;
+          correctChars++;
           if (lessons.get(t*2-1).substring(charNumb-1,charNumb).equals(" "))
           {
-            colourChars.add(new ColourChar('_', Color.GREEN));
+            colourChars.add(new ColourChar('_', Color.BLUE));
           }
           else
           { 
-            colourChars.add(new ColourChar(lessons.get(t*2-1).charAt(charNumb-1), Color.GREEN));
+            colourChars.add(new ColourChar(lessons.get(t*2-1).charAt(charNumb-1), Color.BLUE));
           }
         }
         if (typedChar.equals(lessons.get(t*2-1).substring(charNumb,charNumb+1))==false && typed==true)
@@ -303,6 +309,7 @@ public class Typing
 //          x+=8;
           charNumb++;
           typed=false;
+          incorrectChars++;
           if (lessons.get(t*2-1).substring(charNumb-1,charNumb).equals(" "))
           {
             colourChars.add(new ColourChar('_', Color.RED));
@@ -313,13 +320,36 @@ public class Typing
           }
         }
       }
+      else if (lessonCounted==false)
+      {
+        ba.lessonsDone++;
+        lessonCounted=true;
+      }
+      else if (lessonCounted==true) //DELETE FOR FINAL COPY
+      {
+        
+      } 
       x=2;
       for (int i1 = 0; i1 < colourChars.size(); i1++)
       {
+        fontSize = 11;
+        g.setFont(new Font("Courier New", Font.PLAIN, fontSize));
         g.setColor(colourChars.get(i1).theColour);
         g.drawString(""+colourChars.get(i1).theChar, x, 500);
         x+=7;
       }
+      g.setColor(Color.BLACK);
+      if (incorrectChars+correctChars==0)
+      {
+        acc=0;
+      }
+      else
+      {
+        acc = Math.floor(correctChars/(correctChars+incorrectChars)*100)/100;
+      }
+      fontSize = 20;
+      g.setFont(new Font("Courier New", Font.PLAIN, fontSize));
+      g.drawString(""+acc,1000, 450); 
     } 
   }
 }
