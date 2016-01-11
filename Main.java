@@ -63,6 +63,9 @@ public class Main extends JPanel
   public static void main(String[] args) throws InterruptedException {
     JFrame frame = new JFrame("Animation");
     Main ba = new Main();
+    Menu demo = new Menu();
+    frame.setJMenuBar(demo.createMenuBar());
+    frame.setContentPane(demo.createContentPane());
     frame.add(ba);
     frame.setSize(1280, 984);
     frame.setVisible(true);
