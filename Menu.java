@@ -225,4 +225,8 @@ public class Menu implements ActionListener, ItemListener {
             return null;
         }
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> refs/remotes/origin/master
