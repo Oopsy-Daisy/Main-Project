@@ -26,7 +26,6 @@ public class Typing
   boolean lessonCounted=false;
   String typedChar="kjsfdhsg";
   int x=25;
-  
   ArrayList<String>lessons=new ArrayList<String>(); 
   ArrayList<ColourChar> colourChars = new ArrayList<ColourChar>();
   double correctChars=0;
@@ -271,6 +270,19 @@ public class Typing
   public void keyTyped(KeyEvent e) {
   }
   
+  public void resetTyping(){
+  shiftPressed=false;
+  charNumb=0;
+  typed=false;
+  lessonCounted=false;
+  typedChar="kjsfdhsg";
+  x=25;
+  colourChars = new ArrayList<ColourChar>();
+  correctChars=0;
+  incorrectChars=0;
+  acc=0;
+  }
+  
   public void paint(Graphics2D g, int t) {
     int i=25;
     int fontSize = 11;
@@ -324,6 +336,8 @@ public class Typing
       {
         ba.lessonsDone++;
         lessonCounted=true;
+        Main.typingDone = true;
+        
       }
       else if (lessonCounted==true) //DELETE FOR FINAL COPY
       {
