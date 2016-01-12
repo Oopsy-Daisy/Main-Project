@@ -66,95 +66,117 @@ public class Menu implements ActionListener, ItemListener {
         menuBar = new JMenuBar();
 
         //Build the first menu.
-        menu = new JMenu("A Menu");
-        menu.setMnemonic(KeyEvent.VK_A);
-        menu.getAccessibleContext().setAccessibleDescription(
-                "The only menu in this program that has menu items");
+        menu = new JMenu("File");
+//        menu.setMnemonic(KeyEvent.VK_A);
+//        menu.getAccessibleContext().setAccessibleDescription(
+//                "The only menu in this program that has menu items");
         menuBar.add(menu);
 
         //a group of JMenuItems
-        menuItem = new JMenuItem("A text-only menu item",
-                                 KeyEvent.VK_T);
+//        menuItem = new JMenuItem("A text-only menu item",
+//                                 KeyEvent.VK_T);
         //menuItem.setMnemonic(KeyEvent.VK_T); //used constructor instead
-        menuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_1, ActionEvent.ALT_MASK));
-        menuItem.getAccessibleContext().setAccessibleDescription(
-                "This doesn't really do anything");
+//        menuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_1, ActionEvent.ALT_MASK));
+//        menuItem.getAccessibleContext().setAccessibleDescription(
+//                "This doesn't really do anything");
+//        menuItem.addActionListener(this);
+//        menu.add(menuItem);
+
+        ImageIcon icon = createImageIcon("exit.png");
+        menuItem = new JMenuItem("Exit Game", icon);
         menuItem.addActionListener(this);
         menu.add(menuItem);
 
-        ImageIcon icon = createImageIcon("images/middle.gif");
-        menuItem = new JMenuItem("Both text and icon", icon);
-        menuItem.addActionListener(this);
-        menu.add(menuItem);
+//        menuItem = new JMenuItem(icon);
+//        menuItem.setMnemonic(KeyEvent.VK_D);
+//        menuItem.addActionListener(this);
+//        menu.add(menuItem);
 
-        menuItem = new JMenuItem(icon);
-        menuItem.setMnemonic(KeyEvent.VK_D);
-        menuItem.addActionListener(this);
-        menu.add(menuItem);
-
-        //a group of radio button menu items
-        menu.addSeparator();
-        ButtonGroup group = new ButtonGroup();
-
-        rbMenuItem = new JRadioButtonMenuItem("A radio button menu item");
-        rbMenuItem.setSelected(true);
-        rbMenuItem.setMnemonic(KeyEvent.VK_R);
-        group.add(rbMenuItem);
-        rbMenuItem.addActionListener(this);
-        menu.add(rbMenuItem);
-
-        rbMenuItem = new JRadioButtonMenuItem("Another one");
-        rbMenuItem.setMnemonic(KeyEvent.VK_O);
-        group.add(rbMenuItem);
-        rbMenuItem.addActionListener(this);
-        menu.add(rbMenuItem);
-
-        //a group of check box menu items
-        menu.addSeparator();
-        cbMenuItem = new JCheckBoxMenuItem("A check box menu item");
-        cbMenuItem.setMnemonic(KeyEvent.VK_C);
-        cbMenuItem.addItemListener(this);
-        menu.add(cbMenuItem);
-
-        cbMenuItem = new JCheckBoxMenuItem("Another one");
-        cbMenuItem.setMnemonic(KeyEvent.VK_H);
-        cbMenuItem.addItemListener(this);
-        menu.add(cbMenuItem);
-
-        //a submenu
-        menu.addSeparator();
-        submenu = new JMenu("A submenu");
-        submenu.setMnemonic(KeyEvent.VK_S);
-
-        menuItem = new JMenuItem("An item in the submenu");
-        menuItem.setAccelerator(KeyStroke.getKeyStroke(
-                KeyEvent.VK_2, ActionEvent.ALT_MASK));
-        menuItem.addActionListener(this);
-        submenu.add(menuItem);
-
-        menuItem = new JMenuItem("Another item");
-        menuItem.addActionListener(this);
-        submenu.add(menuItem);
-        menu.add(submenu);
+//        //a group of radio button menu items
+//        menu.addSeparator();
+//        ButtonGroup group = new ButtonGroup();
+//
+//        rbMenuItem = new JRadioButtonMenuItem("A radio button menu item");
+//        rbMenuItem.setSelected(true);
+//        rbMenuItem.setMnemonic(KeyEvent.VK_R);
+//        group.add(rbMenuItem);
+//        rbMenuItem.addActionListener(this);
+//        menu.add(rbMenuItem);
+//
+//        rbMenuItem = new JRadioButtonMenuItem("Another one");
+//        rbMenuItem.setMnemonic(KeyEvent.VK_O);
+//        group.add(rbMenuItem);
+//        rbMenuItem.addActionListener(this);
+//        menu.add(rbMenuItem);
+//
+//        //a group of check box menu items
+//        menu.addSeparator();
+//        cbMenuItem = new JCheckBoxMenuItem("A check box menu item");
+//        cbMenuItem.setMnemonic(KeyEvent.VK_C);
+//        cbMenuItem.addItemListener(this);
+//        menu.add(cbMenuItem);
+//
+//        cbMenuItem = new JCheckBoxMenuItem("Another one");
+//        cbMenuItem.setMnemonic(KeyEvent.VK_H);
+//        cbMenuItem.addItemListener(this);
+//        menu.add(cbMenuItem);
+//
+//        //a submenu
+//        menu.addSeparator();
+//        submenu = new JMenu("A submenu");
+//        submenu.setMnemonic(KeyEvent.VK_S);
+//
+//        menuItem = new JMenuItem("An item in the submenu");
+//        menuItem.setAccelerator(KeyStroke.getKeyStroke(
+//                KeyEvent.VK_2, ActionEvent.ALT_MASK));
+//        menuItem.addActionListener(this);
+//        submenu.add(menuItem);
+//
+//        menuItem = new JMenuItem("Another item");
+//        menuItem.addActionListener(this);
+//        submenu.add(menuItem);
+//        menu.add(submenu);
 
         //Build second menu in the menu bar.
-        menu = new JMenu("Another Menu");
-        menu.setMnemonic(KeyEvent.VK_N);
-        menu.getAccessibleContext().setAccessibleDescription(
-                "This menu does nothing");
+        menu = new JMenu("Typing");
+//        menu.setMnemonic(KeyEvent.VK_N);
+//        menu.getAccessibleContext().setAccessibleDescription(
+//                "This menu does nothing");
         menuBar.add(menu);
 
+        icon = createImageIcon("lessons.png");
+        menuItem = new JMenuItem("Lessons", icon);
+        menuItem.addActionListener(this);
+        menu.add(menuItem);
+        
+        icon = createImageIcon("challenges.png");
+        menuItem = new JMenuItem("Challenges", icon);
+        menuItem.addActionListener(this);
+        menu.add(menuItem);
+        
+        //Build third menu in the menu bar.
+        menu = new JMenu("Plant");
+//        menu.setMnemonic(KeyEvent.VK_N);
+//        menu.getAccessibleContext().setAccessibleDescription(
+//                "This menu does nothing");
+        menuBar.add(menu);
+
+        icon = createImageIcon("garden.png");
+        menuItem = new JMenuItem("Garden", icon);
+        menuItem.addActionListener(this);
+        menu.add(menuItem);
+        
+        icon = createImageIcon("shop.png");
+        menuItem = new JMenuItem("Shop", icon);
+        menuItem.addActionListener(this);
+        menu.add(menuItem);
+        
         return menuBar;
     }
 
     public void actionPerformed(ActionEvent e) {
         JMenuItem source = (JMenuItem)(e.getSource());
-        String s = "Action event detected."
-                   + newline
-                   + "    Event source: " + source.getText()
-                   + " (an instance of " + getClassName(source) + ")";
-        output.append(s + newline);
-        output.setCaretPosition(output.getDocument().getLength());
+        System.out.println("ClickMade");
     }
 
     public void itemStateChanged(ItemEvent e) {
@@ -162,7 +184,6 @@ public class Menu implements ActionListener, ItemListener {
         String s = "Item event detected."
                    + newline
                    + "    Event source: " + source.getText()
-                   + " (an instance of " + getClassName(source) + ")"
                    + newline
                    + "    New state: "
                    + ((e.getStateChange() == ItemEvent.SELECTED) ?
@@ -186,13 +207,13 @@ public class Menu implements ActionListener, ItemListener {
 // 
         return contentPane;
     }
-
-    // Returns just the class name -- no package info.
-    protected String getClassName(Object o) {
-        String classString = o.getClass().getName();
-        int dotIndex = classString.lastIndexOf(".");
-        return classString.substring(dotIndex+1);
-    }
+//
+//    // Returns just the class name -- no package info.
+//    protected String getClassName(Object o) {
+//        String classString = o.getClass().getName();
+//        int dotIndex = classString.lastIndexOf(".");
+//        return classString.substring(dotIndex+1);
+//    }
 
     /** Returns an ImageIcon, or null if the path was invalid. */
     protected static ImageIcon createImageIcon(String path) {
