@@ -363,7 +363,7 @@ public class Typing
       }
       fontSize = 20;
       g.setFont(new Font("Courier New", Font.PLAIN, fontSize));
-      g.drawString(""+(int)acc+"%",1000, 450);
+      g.drawString(""+(int)acc+"%",1000, 450); 
     } 
   }
 }
