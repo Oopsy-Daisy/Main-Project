@@ -31,6 +31,7 @@ public class Main extends JPanel
   private Typing type = new Typing(this);
   public static int lessonNumb=0;
   public static int lessonsDone=0;
+  public static Boolean typingDone = false;
   
   public Main ()
   {
@@ -61,21 +62,36 @@ public class Main extends JPanel
   //Option Methods
   //Methods for the interaction of sub methods; final integration step
   public static void main(String[] args) throws InterruptedException {
-    JFrame frame = new JFrame("Animation");
     Main ba = new Main();
+    ba.doAll();
+  }
+  
+  public void doAll()
+  {
+    JFrame frame = new JFrame("Animation");
     Menu demo = new Menu();
     frame.setJMenuBar(demo.createMenuBar());
-//    frame.setContentPane(demo.createContentPane());
-    frame.add(ba);
+    frame.setContentPane(demo.createContentPane());
+    frame.add(this);
     frame.setSize(1280, 984);
     frame.setVisible(true);
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    Object[] possibilities = {"1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16"};
-    String s = (String)JOptionPane.showInputDialog(frame,"CHOOSE A NUMBER U CLOWN FINE SIR","Select a Lesson", JOptionPane.PLAIN_MESSAGE,null,possibilities,"1");
-    lessonNumb=Integer.parseInt(s);
-    while (true) {
-      ba.repaint();
-      Thread.sleep(10);
+    while(true)
+    {
+      Object[] possibilities = {"1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16"};
+      String s = (String)JOptionPane.showInputDialog(frame,"CHOOSE A NUMBER U CLOWN FINE SIR","Select a Lesson", JOptionPane.PLAIN_MESSAGE,null,possibilities,"1");
+      lessonNumb=Integer.parseInt(s);
+      while (!typingDone) {
+        this.repaint();
+        try {
+          Thread.sleep(10);
+        }
+        catch (Exception e){
+          e.printStackTrace();
+        }
+      }
+      typingDone = false;
+      type.resetTyping();
     }
   }
 }

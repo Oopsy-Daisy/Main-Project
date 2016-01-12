@@ -170,6 +170,22 @@ public class Menu implements ActionListener, ItemListener {
         output.append(s + newline);
         output.setCaretPosition(output.getDocument().getLength());
     }
+    
+     public Container createContentPane() {
+//        //Create the content-pane-to-be.
+        JPanel contentPane = new JPanel(new BorderLayout());
+//        contentPane.setOpaque(true);
+// 
+//        //Create a scrolled text area.
+//        output = new JTextArea(5, 30);
+//        output.setEditable(false);
+//        scrollPane = new JScrollPane(output);
+// 
+//        //Add the text area to the content pane.
+//        contentPane.add(scrollPane, BorderLayout.CENTER);
+// 
+        return contentPane;
+    }
 
     // Returns just the class name -- no package info.
     protected String getClassName(Object o) {
