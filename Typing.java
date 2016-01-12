@@ -357,13 +357,13 @@ public class Typing
       {
         acc=0;
       }
-      else
+    else
       {
-        acc = Math.floor(correctChars/(correctChars+incorrectChars)*100)/100;
+        acc = Math.floor(correctChars/(correctChars+incorrectChars)*100);
       }
       fontSize = 20;
       g.setFont(new Font("Courier New", Font.PLAIN, fontSize));
-      g.drawString(""+acc,1000, 450); 
+      g.drawString(""+(int)acc+"%",1000, 450); 
     } 
   }
 }
