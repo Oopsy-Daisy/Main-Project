@@ -24,10 +24,16 @@ public class Challenges
   boolean typed=false;
   String typedChar="kjsfdhsg";
   int x=25;
-  ArrayList<String>lessons=new ArrayList<String>(); 
+  ArrayList<String>challenges=new ArrayList<String>(); 
   ArrayList<ColourChar> colourChars = new ArrayList<ColourChar>();
   long startTime;
-  long elapsedTime = 0L;
+  long endTime=0;
+  long elapsedTime = 0;
+  double correctChars=0;
+  double incorrectChars=0;
+  double acc=0;
+  boolean challengeDone=false;
+  int randChall=-1;
   
   public Challenges(Main ba)
   {
@@ -40,224 +46,224 @@ public class Challenges
       //Create a new instance of the BufferedReader and
       //add the FileReader to it
       BufferedReader br = new BufferedReader(fr);
-      //A string variable that will temporarily what youâ€™re reading
+      //A string variable that will temporarily what youÃ¢â‚¬â„¢re reading
       
       //A dual purpose line! First it reads the next line and then
-      //it checks to see if that line was null. If itâ€™s null, then
-      //that means youâ€™re at the end of the file.
+      //it checks to see if that line was null. If itÃ¢â‚¬â„¢s null, then
+      //that means youÃ¢â‚¬â„¢re at the end of the file.
       while ((line=br.readLine()) != null)
       {
-        lessons.add(line);
+        challenges.add(line);
       }
-      //close the file when youâ€™re done
+      //close the file when youÃ¢â‚¬â„¢re done
       br.close();
     }
     catch(IOException e)
     {
       //Error message
     }
+    randChall=(int)(Math.random()*(challenges.size()-1));
   }
   
   public void keyReleased(KeyEvent e) {
-    typed=true;
     if (e.getKeyCode()==KeyEvent.VK_SHIFT)
     {shiftPressed=false;}
     if(e.getKeyCode()==KeyEvent.VK_SPACE)
-    {typedChar=" ";}
+    {typedChar=" ";typed=true;}
 // LOWER CASE LETTERS
     if (e.getKeyCode()==KeyEvent.VK_A && shiftPressed==false)
-    {typedChar="a";}
+    {typedChar="a";typed=true;}
     if (e.getKeyCode()==KeyEvent.VK_B && shiftPressed==false)
-    {typedChar="b";}  
+    {typedChar="b";typed=true;}  
     if (e.getKeyCode()==KeyEvent.VK_C && shiftPressed==false)
-    {typedChar="c";}
+    {typedChar="c";typed=true;}
     if (e.getKeyCode()==KeyEvent.VK_D && shiftPressed==false)
-    {typedChar="d";}
+    {typedChar="d";typed=true;}
     if (e.getKeyCode()==KeyEvent.VK_E && shiftPressed==false)
-    {typedChar="e";}
+    {typedChar="e";typed=true;}
     if (e.getKeyCode()==KeyEvent.VK_F && shiftPressed==false)
-    {typedChar="f";}
+    {typedChar="f";typed=true;}
     if (e.getKeyCode()==KeyEvent.VK_G && shiftPressed==false)
-    {typedChar="g";}
+    {typedChar="g";typed=true;}
     if (e.getKeyCode()==KeyEvent.VK_H && shiftPressed==false)
-    {typedChar="h";}
+    {typedChar="h";typed=true;}
     if (e.getKeyCode()==KeyEvent.VK_I && shiftPressed==false)
-    {typedChar="i";}
+    {typedChar="i";typed=true;}
     if (e.getKeyCode()==KeyEvent.VK_J && shiftPressed==false)
-    {typedChar="j";}
+    {typedChar="j";typed=true;}
     if (e.getKeyCode()==KeyEvent.VK_K && shiftPressed==false)
-    {typedChar="k";}
+    {typedChar="k";typed=true;}
     if (e.getKeyCode()==KeyEvent.VK_L && shiftPressed==false)
-    {typedChar="l";}
+    {typedChar="l";typed=true;}
     if (e.getKeyCode()==KeyEvent.VK_M && shiftPressed==false)
-    {typedChar="m";}
+    {typedChar="m";typed=true;}
     if (e.getKeyCode()==KeyEvent.VK_N && shiftPressed==false)
-    {typedChar="n";}
+    {typedChar="n";typed=true;}
     if (e.getKeyCode()==KeyEvent.VK_O && shiftPressed==false)
-    {typedChar="o";}
+    {typedChar="o";typed=true;}
     if (e.getKeyCode()==KeyEvent.VK_P && shiftPressed==false)
-    {typedChar="p";}
+    {typedChar="p";typed=true;}
     if (e.getKeyCode()==KeyEvent.VK_Q && shiftPressed==false)
-    {typedChar="q";}
+    {typedChar="q";typed=true;}
     if (e.getKeyCode()==KeyEvent.VK_R && shiftPressed==false)
-    {typedChar="r";}
+    {typedChar="r";typed=true;}
     if (e.getKeyCode()==KeyEvent.VK_S && shiftPressed==false)
-    {typedChar="s";}
+    {typedChar="s";typed=true;}
     if (e.getKeyCode()==KeyEvent.VK_T && shiftPressed==false)
-    {typedChar="t";}
+    {typedChar="t";typed=true;}
     if (e.getKeyCode()==KeyEvent.VK_U && shiftPressed==false)
-    {typedChar="u";}
+    {typedChar="u";typed=true;}
     if (e.getKeyCode()==KeyEvent.VK_V && shiftPressed==false)
-    {typedChar="v";}
+    {typedChar="v";typed=true;}
     if (e.getKeyCode()==KeyEvent.VK_W && shiftPressed==false)
-    {typedChar="w";}
+    {typedChar="w";typed=true;}
     if (e.getKeyCode()==KeyEvent.VK_X && shiftPressed==false)
-    {typedChar="x";}
+    {typedChar="x";typed=true;}
     if (e.getKeyCode()==KeyEvent.VK_Y && shiftPressed==false)
-    {typedChar="y";}
+    {typedChar="y";typed=true;}
     if (e.getKeyCode()==KeyEvent.VK_Z && shiftPressed==false)
-    {typedChar="z";}
+    {typedChar="z";typed=true;}
     
 // UPPER CASE LETTERS
     if (e.getKeyCode()==KeyEvent.VK_A && shiftPressed==true)
-    {typedChar="A";}
+    {typedChar="A";typed=true;}
     if (e.getKeyCode()==KeyEvent.VK_B && shiftPressed==true)
-    {typedChar="B";}  
+    {typedChar="B";typed=true;}  
     if (e.getKeyCode()==KeyEvent.VK_C && shiftPressed==true)
-    {typedChar="C";}
+    {typedChar="C";typed=true;}
     if (e.getKeyCode()==KeyEvent.VK_D && shiftPressed==true)
-    {typedChar="D";}
+    {typedChar="D";typed=true;}
     if (e.getKeyCode()==KeyEvent.VK_E && shiftPressed==true)
-    {typedChar="E";}
+    {typedChar="E";typed=true;}
     if (e.getKeyCode()==KeyEvent.VK_F && shiftPressed==true)
-    {typedChar="F";}
+    {typedChar="F";typed=true;}
     if (e.getKeyCode()==KeyEvent.VK_G && shiftPressed==true)
-    {typedChar="G";}
+    {typedChar="G";typed=true;}
     if (e.getKeyCode()==KeyEvent.VK_H && shiftPressed==true)
-    {typedChar="H";}
+    {typedChar="H";typed=true;}
     if (e.getKeyCode()==KeyEvent.VK_I && shiftPressed==true)
-    {typedChar="I";}
+    {typedChar="I";typed=true;}
     if (e.getKeyCode()==KeyEvent.VK_J && shiftPressed==true)
-    {typedChar="J";}
+    {typedChar="J";typed=true;}
     if (e.getKeyCode()==KeyEvent.VK_K && shiftPressed==true)
-    {typedChar="K";}
+    {typedChar="K";typed=true;}
     if (e.getKeyCode()==KeyEvent.VK_L && shiftPressed==true)
-    {typedChar="L";}
+    {typedChar="L";typed=true;}
     if (e.getKeyCode()==KeyEvent.VK_M && shiftPressed==true)
-    {typedChar="M";}
+    {typedChar="M";typed=true;}
     if (e.getKeyCode()==KeyEvent.VK_N && shiftPressed==true)
-    {typedChar="N";}
+    {typedChar="N";typed=true;}
     if (e.getKeyCode()==KeyEvent.VK_O && shiftPressed==true)
-    {typedChar="O";}
+    {typedChar="O";typed=true;}
     if (e.getKeyCode()==KeyEvent.VK_P && shiftPressed==true)
-    {typedChar="P";}
+    {typedChar="P";typed=true;}
     if (e.getKeyCode()==KeyEvent.VK_Q && shiftPressed==true)
-    {typedChar="Q";}
+    {typedChar="Q";typed=true;}
     if (e.getKeyCode()==KeyEvent.VK_R && shiftPressed==true)
-    {typedChar="R";}
+    {typedChar="R";typed=true;}
     if (e.getKeyCode()==KeyEvent.VK_S && shiftPressed==true)
-    {typedChar="S";}
+    {typedChar="S";typed=true;}
     if (e.getKeyCode()==KeyEvent.VK_T && shiftPressed==true)
-    {typedChar="T";}
+    {typedChar="T";typed=true;}
     if (e.getKeyCode()==KeyEvent.VK_U && shiftPressed==true)
-    {typedChar="U";}
+    {typedChar="U";typed=true;}
     if (e.getKeyCode()==KeyEvent.VK_V && shiftPressed==true)
-    {typedChar="V";}
+    {typedChar="V";typed=true;}
     if (e.getKeyCode()==KeyEvent.VK_W && shiftPressed==true)
-    {typedChar="W";}
+    {typedChar="W";typed=true;}
     if (e.getKeyCode()==KeyEvent.VK_X && shiftPressed==true)
-    {typedChar="X";}
+    {typedChar="X";typed=true;}
     if (e.getKeyCode()==KeyEvent.VK_Y && shiftPressed==true)
-    {typedChar="Y";}
+    {typedChar="Y";typed=true;}
     if (e.getKeyCode()==KeyEvent.VK_Z && shiftPressed==true)
-    {typedChar="Z";}
+    {typedChar="Z";typed=true;}
     
 // NUMBERS
     if (e.getKeyCode()==KeyEvent.VK_0 && shiftPressed==false)
-    {typedChar="0";}
+    {typedChar="0";typed=true;}
     if (e.getKeyCode()==KeyEvent.VK_1 && shiftPressed==false)
-    {typedChar="1";}
+    {typedChar="1";typed=true;}
     if (e.getKeyCode()==KeyEvent.VK_2 && shiftPressed==false)
-    {typedChar="2";}
+    {typedChar="2";typed=true;}
     if (e.getKeyCode()==KeyEvent.VK_3 && shiftPressed==false)
-    {typedChar="3";}
+    {typedChar="3";typed=true;}
     if (e.getKeyCode()==KeyEvent.VK_4 && shiftPressed==false)
-    {typedChar="4";}
+    {typedChar="4";typed=true;}
     if (e.getKeyCode()==KeyEvent.VK_5 && shiftPressed==false)
-    {typedChar="5";}
+    {typedChar="5";typed=true;}
     if (e.getKeyCode()==KeyEvent.VK_6 && shiftPressed==false)
-    {typedChar="6";}
+    {typedChar="6";typed=true;}
     if (e.getKeyCode()==KeyEvent.VK_7 && shiftPressed==false)
-    {typedChar="7";}
+    {typedChar="7";typed=true;}
     if (e.getKeyCode()==KeyEvent.VK_8 && shiftPressed==false)
-    {typedChar="8";}
+    {typedChar="8";typed=true;}
     if (e.getKeyCode()==KeyEvent.VK_9 && shiftPressed==false)
-    {typedChar="9";}
+    {typedChar="9";typed=true;}
 // PUNCTUATION AND OTHER CHARARATERS
     if (e.getKeyCode()==KeyEvent.VK_BACK_QUOTE && shiftPressed==false)
-    {typedChar="`";}//`
+    {typedChar="`";typed=true;}//`
     if (e.getKeyCode()==KeyEvent.VK_MINUS && shiftPressed==false)
-    {typedChar="-";}//-
+    {typedChar="-";typed=true;}//-
     if (e.getKeyCode()==KeyEvent.VK_EQUALS && shiftPressed==false)
-    {typedChar="=";}//=
+    {typedChar="=";typed=true;}//=
     if (e.getKeyCode()==KeyEvent.VK_BACK_QUOTE && shiftPressed==true)
-    {typedChar="~";}//~
+    {typedChar="~";typed=true;}//~
     if (e.getKeyCode()==KeyEvent.VK_1 && shiftPressed==true)
-    {typedChar="!";}//!
+    {typedChar="!";typed=true;}//!
     if (e.getKeyCode()==KeyEvent.VK_2 && shiftPressed==true)
-    {typedChar="@";}//@
+    {typedChar="@";typed=true;}//@
     if (e.getKeyCode()==KeyEvent.VK_3 && shiftPressed==true)
-    {typedChar="#";}//#
+    {typedChar="#";typed=true;}//#
     if (e.getKeyCode()==KeyEvent.VK_4 && shiftPressed==true)
-    {typedChar="$";}//$
+    {typedChar="$";typed=true;}//$
     if (e.getKeyCode()==KeyEvent.VK_5 && shiftPressed==true)
-    {typedChar="%";}//%
+    {typedChar="%";typed=true;}//%
     if (e.getKeyCode()==KeyEvent.VK_6 && shiftPressed==true)
-    {typedChar="^";}//^
+    {typedChar="^";typed=true;}//^
     if (e.getKeyCode()==KeyEvent.VK_7 && shiftPressed==true)
-    {typedChar="&";}//&
+    {typedChar="&";typed=true;}//&
     if (e.getKeyCode()==KeyEvent.VK_8 && shiftPressed==true)
-    {typedChar="*";}//*
+    {typedChar="*";typed=true;}//*
     if (e.getKeyCode()==KeyEvent.VK_9 && shiftPressed==true)
-    {typedChar="(";}//(
+    {typedChar="(";typed=true;}//(
     if (e.getKeyCode()==KeyEvent.VK_0 && shiftPressed==true)
-    {typedChar=")";}//)
+    {typedChar=")";typed=true;}//)
     if (e.getKeyCode()==KeyEvent.VK_MINUS && shiftPressed==true)
-    {typedChar="_";}//_
+    {typedChar="_";typed=true;}//_
     if (e.getKeyCode()==KeyEvent.VK_EQUALS && shiftPressed==true)
-    {typedChar="+";}//+
+    {typedChar="+";typed=true;}//+
     if (e.getKeyCode()==KeyEvent.VK_OPEN_BRACKET && shiftPressed==false)
-    {typedChar="[";}//[
+    {typedChar="[";typed=true;}//[
     if (e.getKeyCode()==KeyEvent.VK_CLOSE_BRACKET && shiftPressed==false)
-    {typedChar="]";}//]
+    {typedChar="]";typed=true;}//]
     if (e.getKeyCode()==KeyEvent.VK_BACK_SLASH && shiftPressed==false)
-    {typedChar="\\";}//\
+    {typedChar="\\";typed=true;}//\
     if (e.getKeyCode()==KeyEvent.VK_OPEN_BRACKET && shiftPressed==true)
-    {typedChar="{";}//{
+    {typedChar="{";typed=true;}//{
     if (e.getKeyCode()==KeyEvent.VK_CLOSE_BRACKET && shiftPressed==true)
-    {typedChar="}";}//}
+    {typedChar="}";typed=true;}//}
     if (e.getKeyCode()==KeyEvent.VK_BACK_SLASH && shiftPressed==true)
-    {typedChar="|";}//|
+    {typedChar="|";typed=true;}//|
     if (e.getKeyCode()==KeyEvent.VK_SEMICOLON && shiftPressed==false)
-    {typedChar=";";}//;
+    {typedChar=";";typed=true;}//;
     if (e.getKeyCode()==KeyEvent.VK_SEMICOLON && shiftPressed==true)
-    {typedChar=":";}//:
+    {typedChar=":";typed=true;}//:
     if (e.getKeyCode()==KeyEvent.VK_QUOTE && shiftPressed==false)
-    {typedChar="'";}//'
+    {typedChar="'";typed=true;}//'
     if (e.getKeyCode()==KeyEvent.VK_QUOTE && shiftPressed==true)
-    {typedChar="\"";}//"
+    {typedChar="\"";typed=true;}//"
     if (e.getKeyCode()==KeyEvent.VK_COMMA && shiftPressed==false)
-    {typedChar=",";}//,
+    {typedChar=",";typed=true;}//,
     if (e.getKeyCode()==KeyEvent.VK_COMMA && shiftPressed==true)
-    {typedChar="<";}//<
+    {typedChar="<";typed=true;}//<
     if (e.getKeyCode()==KeyEvent.VK_PERIOD && shiftPressed==false)
-    {typedChar=".";}//.
+    {typedChar=".";typed=true;}//.
     if (e.getKeyCode()==KeyEvent.VK_PERIOD && shiftPressed==true)
-    {typedChar=">";}//>
+    {typedChar=">";typed=true;}//>
     if (e.getKeyCode()==KeyEvent.VK_SLASH && shiftPressed==false)
-    {typedChar="/";}///
+    {typedChar="/";typed=true;}///
     if (e.getKeyCode()==KeyEvent.VK_SLASH && shiftPressed==true)
-    {typedChar="?";}//?
+    {typedChar="?";typed=true;}//?
   }
   public void keyPressed(KeyEvent e) {
     if (e.getKeyCode()==KeyEvent.VK_SHIFT)
@@ -268,61 +274,104 @@ public class Challenges
   public void keyTyped(KeyEvent e) {
   }
   
-    public void paint(Graphics2D g) {
-      startTime = System.currentTimeMillis();
-      while (elapsedTime < 2*60*1000) {
-      int i=25;
-      int fontSize = 18;
-      g.setFont(new Font("Courier New", Font.PLAIN, fontSize));
-      for (int count=0;count<lessons.size();count++)
-      {
-        g.drawString(lessons.get(count), 25, i);
-        i+=14;
-      }
+  public void resetChallenge(){
+    shiftPressed=false;
+    charNumb=0;
+    typed=false;
+    typedChar="kjsfdhsg";
+    x=25;
+    colourChars = new ArrayList<ColourChar>();
+    correctChars=0;
+    incorrectChars=0;
+    acc=0;
+    randChall=-1;
+  }
+  
+  public void paint(Graphics2D g) {
+    if (charNumb==0)
+    {
+      startTime=System.currentTimeMillis();
+    }
+    int i=25;
+    int fontSize = 11;
+    g.setFont(new Font("Courier New", Font.PLAIN, fontSize));
+    if (randChall==-1)
+    {
+      g.drawString("",0,0);
+    }
+    else
+    {
+      g.drawString(challenges.get(randChall), 3, i);
+      i+=14;
       
-      if (charNumb<lessons.get(1).length())
+      if (charNumb<challenges.get(randChall).length())
       {
-        if (typedChar.equals(lessons.get(1).substring(charNumb,charNumb+1))==true && typed==true)
+        if (typedChar.equals(challenges.get(randChall).substring(charNumb,charNumb+1))==true && typed==true)
         {
 //          g.setColor(Color.GREEN);
 //          g.drawString(lessons.get(1).substring(charNumb,charNumb+1), x, 500);
 //          x+=8;
           charNumb++;
           typed=false;
-          if (lessons.get(1).substring(charNumb-1,charNumb).equals(" "))
+          correctChars++;
+          if (challenges.get(randChall).substring(charNumb-1,charNumb).equals(" "))
           {
-            colourChars.add(new ColourChar('_', Color.GREEN));
+            colourChars.add(new ColourChar('_', Color.BLUE));
           }
           else
           { 
-            colourChars.add(new ColourChar(lessons.get(1).charAt(charNumb-1), Color.GREEN));
+            colourChars.add(new ColourChar(challenges.get(randChall).charAt(charNumb-1), Color.BLUE));
           }
         }
-        if (typedChar.equals(lessons.get(1).substring(charNumb,charNumb+1))==false && typed==true)
+        if (typedChar.equals(challenges.get(randChall).substring(charNumb,charNumb+1))==false && typed==true)
         {
 //          g.setColor(Color.RED);
 //          g.drawString(lessons.get(1).substring(charNumb,charNumb+1), x, 500);
 //          x+=8;
           charNumb++;
           typed=false;
-          if (lessons.get(1).substring(charNumb-1,charNumb).equals(" "))
+          incorrectChars++;
+          if (challenges.get(randChall).substring(charNumb-1,charNumb).equals(" "))
           {
             colourChars.add(new ColourChar('_', Color.RED));
           }
           else
           {
-            colourChars.add(new ColourChar(lessons.get(1).charAt(charNumb-1), Color.RED));
+            colourChars.add(new ColourChar(challenges.get(randChall).charAt(charNumb-1), Color.RED));
           }
         }
-        x=25;
-        for (int i1 = 0; i1 < colourChars.size(); i1++)
-        {
-          g.setColor(colourChars.get(i1).theColour);
-          g.drawString(""+colourChars.get(i1).theChar, x, 500);
-          x+=10;
-        }
+      }
+      else if (challengeDone==false)
+      {
+        endTime=System.currentTimeMillis();
+        challengeDone=true;
+      }
+      x=2;
+      for (int i1 = 0; i1 < colourChars.size(); i1++)
+      {
+        fontSize = 11;
+        g.setFont(new Font("Courier New", Font.PLAIN, fontSize));
+        g.setColor(colourChars.get(i1).theColour);
+        g.drawString(""+colourChars.get(i1).theChar, x, 500);
+        x+=7;
+      }
+      g.setColor(Color.BLACK);
+      if (incorrectChars+correctChars==0)
+      {
+        acc=0;
+      }
+      else
+      {
+        acc = Math.floor(correctChars/(correctChars+incorrectChars)*100);
+      }
+      fontSize = 20;
+      g.setFont(new Font("Courier New", Font.PLAIN, fontSize));
+      g.drawString(""+(int)acc+"%",1000, 450); 
+      if (endTime!=0)
+      {
+        elapsedTime=(endTime - startTime)/1000;
+        g.drawString(""+(int)elapsedTime,1000, 600); 
       }
     } 
-    elapsedTime = (System.currentTimeMillis() - startTime);
   }
 }
