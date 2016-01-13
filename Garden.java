@@ -10,8 +10,17 @@ import java.awt.event.*;
 import java.awt.Graphics2D;
 
 public class Garden
-{   
-  //Variables including seeds available and the garden size
-  //Display Garden Plot
-  //Methods to allow the user to plant, fertilizer and dig up
+{
+ List<String> seedsAvailable = new ArrayList<String>();
+ List<Flower> flowers = new ArrayList<Flower>(plot, colour);
+ List<int> plot = new ArrayList<int>();
+ //list of flowers and their properties, can be accessed by flower class
+ 
+ public void plantSeed(String seedType, int location){
+   //plant seed from available seeds in next avail plot
+ }
+ public void useFertilizer(Flower flower){
+   //force grow flower
+ } 
+
 }
