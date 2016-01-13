@@ -23,7 +23,7 @@ public class Shop
     unavailableItems.add("greenFlower.png");
     unavailableItems.add("blueFlower.png");
     unavailableItems.add("orangeFlower.png");
-    unavailableItems.add("purpleFlower.png");
+    unavailableItems.add("pinkFlower.png");
     unavailableItems.add("fertilizer.png");
   }
   
