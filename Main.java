@@ -32,6 +32,7 @@ public class Main extends JPanel
   public static int lessonNumb=0;
   public static int lessonsDone=0;
   public static Boolean typingDone = false;
+  private Challenges challenge = new Challenges(this);
   
   public Main ()
   {
@@ -42,10 +43,12 @@ public class Main extends JPanel
       @Override
       public void keyReleased(KeyEvent e) {
         type.keyReleased(e);
+        challenge.keyReleased(e);
       }
       @Override
       public void keyPressed(KeyEvent e) {
         type.keyPressed(e);
+        challenge.keyPressed(e);
       }
     });
     setFocusable(true); 
@@ -57,7 +60,9 @@ public class Main extends JPanel
     super.paint(g);
     Graphics2D g2d = (Graphics2D) g;
     g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-    type.paint(g2d,lessonNumb);
+    //type.paint(g2d,lessonNumb);
+    challenge.paint(g2d);
+    
   }
   //Option Methods
   //Methods for the interaction of sub methods; final integration step
@@ -76,22 +81,32 @@ public class Main extends JPanel
     frame.setSize(1280, 984);
     frame.setVisible(true);
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//    while(true)
+//    {
+//      Object[] possibilities = {"1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16"};
+//      String s = (String)JOptionPane.showInputDialog(frame,"CHOOSE A NUMBER U CLOWN FINE SIR","Select a Lesson", JOptionPane.PLAIN_MESSAGE,null,possibilities,"1");
+//      lessonNumb=Integer.parseInt(s);
+//      while (!typingDone) {
+//        this.repaint();
+//        try {
+//          Thread.sleep(10);
+//        }
+//        catch (Exception e){
+//          e.printStackTrace();
+//        }
+//      }
+//      typingDone = false;
+//      type.resetTyping();
+//    }
     while(true)
     {
-      Object[] possibilities = {"1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16"};
-      String s = (String)JOptionPane.showInputDialog(frame,"CHOOSE A NUMBER U CLOWN FINE SIR","Select a Lesson", JOptionPane.PLAIN_MESSAGE,null,possibilities,"1");
-      lessonNumb=Integer.parseInt(s);
-      while (!typingDone) {
-        this.repaint();
-        try {
-          Thread.sleep(10);
-        }
-        catch (Exception e){
-          e.printStackTrace();
-        }
+      this.repaint();
+      try {
+        Thread.sleep(10);
       }
-      typingDone = false;
-      type.resetTyping();
+      catch (Exception e){
+        e.printStackTrace();
+      }
     }
   }
 }
