@@ -24,6 +24,9 @@ import javax.swing.JFrame;
 import java.beans.*; //Property change stuff
 import java.util.Timer;
 import java.util.TimerTask;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseEvent;
+
 
 public class Main extends JPanel
 {   
@@ -33,6 +36,8 @@ public class Main extends JPanel
   public static int lessonsDone=0;
   public static Boolean typingDone = false;
   private Challenges challenge = new Challenges(this);
+  public static boolean lessonsON=false;
+  public static boolean challengeON=false;
   
   public Main ()
   {
@@ -52,6 +57,34 @@ public class Main extends JPanel
       }
     });
     setFocusable(true); 
+    addMouseListener(new MouseListener(){
+      public void mousePressed(MouseEvent e) {
+      }
+      
+      public void mouseReleased(MouseEvent e) {
+        if ((e.getX()>=200&&e.getX()<=250)&&(e.getY()>=800&&e.getY()<=850))
+        {
+          lessonsON=true;
+          System.out.print("hi");
+        }  
+        if ((e.getX()>=400&&e.getX()<=450)&&(e.getY()>=800&&e.getY()<=850))
+        {
+          lessonsON=false;
+          challengeON=false;
+        }
+      }
+      
+      public void mouseEntered(MouseEvent e) {
+      }
+      
+      public void mouseExited(MouseEvent e) {
+      }
+      
+      public void mouseClicked(MouseEvent e) {
+      }
+    });
+    setFocusable(true); 
+    
   }
   
   
@@ -60,45 +93,67 @@ public class Main extends JPanel
     super.paint(g);
     Graphics2D g2d = (Graphics2D) g;
     g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-    //type.paint(g2d,lessonNumb);
-    challenge.paint(g2d);
+    if (lessonsON==true)
+    {
+      type.paint(g2d,lessonNumb);
+    }
+    if (challengeON==true)
+    {
+      challenge.paint(g2d);
+    }
+    g.fillRect(200, 800, 50, 50);
+    g.fillRect(400, 800, 50, 50);
     
   }
   //Option Methods
   //Methods for the interaction of sub methods; final integration step
   public static void main(String[] args) throws InterruptedException {
-    Main ba = new Main();
-    ba.doAll();
-  }
-  
-  public void doAll()
-  {
     JFrame frame = new JFrame("Animation");
     Menu demo = new Menu();
+    Main ba = new Main();
     frame.setJMenuBar(demo.createMenuBar());
     frame.setContentPane(demo.createContentPane());
-    frame.add(this);
+    frame.add(ba);
     frame.setSize(1280, 984);
     frame.setVisible(true);
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//    while(true)
-//    {
-//      Object[] possibilities = {"1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16"};
-//      String s = (String)JOptionPane.showInputDialog(frame,"CHOOSE A NUMBER U CLOWN FINE SIR","Select a Lesson", JOptionPane.PLAIN_MESSAGE,null,possibilities,"1");
-//      lessonNumb=Integer.parseInt(s);
-//      while (!typingDone) {
-//        this.repaint();
-//        try {
-//          Thread.sleep(10);
-//        }
-//        catch (Exception e){
-//          e.printStackTrace();
-//        }
-//      }
-//      typingDone = false;
-//      type.resetTyping();
-//    }
-    while(true)
+    
+    while (true)
+    {
+      ba.doAll(frame);
+    }
+  }
+  
+  public void doAll(JFrame frame)
+  {
+    while(lessonsON)
+    {
+      String s=null;
+      while (s==null)
+      {
+        Object[] possibilities = {"1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16"};
+        s = (String)JOptionPane.showInputDialog(frame,"CHOOSE A NUMBER U CLOWN FINE SIR","Select a Lesson", JOptionPane.PLAIN_MESSAGE,null,possibilities,"1");
+      }
+      lessonNumb=Integer.parseInt(s);
+      while (!typingDone) {
+        this.repaint();
+        try {
+          Thread.sleep(10);
+        }
+        catch (Exception e){
+          e.printStackTrace();
+        }
+      }
+      typingDone = false;
+      type.resetTyping();
+      if (lessonsDone!=0&&lessonsDone%5==0)
+      {
+        lessonsON=false;
+        challengeON=true;
+        JOptionPane.showMessageDialog(frame, "WARNING THIS IS A CHALLENGE! TYPE QUICKLY", "CHALLENGE!!!!", JOptionPane.WARNING_MESSAGE);
+      }
+    }
+    while(challengeON==true&&challenge.challengeDone==false)
     {
       this.repaint();
       try {
@@ -108,5 +163,11 @@ public class Main extends JPanel
         e.printStackTrace();
       }
     }
+    if (challenge.challengeDone==true)
+    {
+      lessonsON=true;
+      challengeON=false;
+    }
   }
 }
+
