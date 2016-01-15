@@ -43,16 +43,16 @@ public class Typing
       //Create a new instance of the BufferedReader and
       //add the FileReader to it
       BufferedReader br = new BufferedReader(fr);
-      //A string variable that will temporarily what youâ€™re reading
+      //A string variable that will temporarily what youÃ¢â‚¬â„¢re reading
       
       //A dual purpose line! First it reads the next line and then
-      //it checks to see if that line was null. If itâ€™s null, then
-      //that means youâ€™re at the end of the file.
+      //it checks to see if that line was null. If itÃ¢â‚¬â„¢s null, then
+      //that means youÃ¢â‚¬â„¢re at the end of the file.
       while ((line=br.readLine()) != null)
       {
         lessons.add(line);
       }
-      //close the file when youâ€™re done
+      //close the file when youÃ¢â‚¬â„¢re done
       br.close();
     }
     catch(IOException e)
@@ -339,10 +339,6 @@ public class Typing
         Main.typingDone = true;
         
       }
-      else if (lessonCounted==true) //DELETE FOR FINAL COPY
-      {
-        
-      } 
       x=2;
       for (int i1 = 0; i1 < colourChars.size(); i1++)
       {
@@ -357,7 +353,7 @@ public class Typing
       {
         acc=0;
       }
-    else
+      else
       {
         acc = Math.floor(correctChars/(correctChars+incorrectChars)*100);
       }
