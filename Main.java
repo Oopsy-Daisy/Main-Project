@@ -66,6 +66,7 @@ public class Main extends JPanel
         {
           lessonsON=true;
           System.out.print("hi");
+          
         }  
         if ((e.getX()>=400&&e.getX()<=450)&&(e.getY()>=800&&e.getY()<=850))
         {
@@ -105,6 +106,7 @@ public class Main extends JPanel
     g.fillRect(400, 800, 50, 50);
     
   }
+  
   //Option Methods
   //Methods for the interaction of sub methods; final integration step
   public static void main(String[] args) throws InterruptedException {
@@ -126,6 +128,7 @@ public class Main extends JPanel
   
   public void doAll(JFrame frame)
   {
+    
     while(lessonsON)
     {
       String s=null;
@@ -167,6 +170,12 @@ public class Main extends JPanel
     {
       lessonsON=true;
       challengeON=false;
+    }
+    try {
+      Thread.sleep(10);
+    }
+    catch (Exception e){
+      e.printStackTrace();
     }
   }
 }
