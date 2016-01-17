@@ -9,6 +9,8 @@ import java.awt.event.KeyListener;
 import java.awt.event.*;
 import java.awt.Graphics2D;
 import java.util.ArrayList;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseEvent;
 
 public class Shop
 {  
@@ -26,6 +28,4 @@ public class Shop
     unavailableItems.add("pinkFlower.png");
     unavailableItems.add("fertilizer.png");
   }
-  
-  
 }

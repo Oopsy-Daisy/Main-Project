@@ -271,16 +271,16 @@ public class Typing
   }
   
   public void resetTyping(){
-  shiftPressed=false;
-  charNumb=0;
-  typed=false;
-  lessonCounted=false;
-  typedChar="kjsfdhsg";
-  x=25;
-  colourChars = new ArrayList<ColourChar>();
-  correctChars=0;
-  incorrectChars=0;
-  acc=0;
+    shiftPressed=false;
+    charNumb=0;
+    typed=false;
+    lessonCounted=false;
+    typedChar="kjsfdhsg";
+    x=25;
+    colourChars = new ArrayList<ColourChar>();
+    correctChars=0;
+    incorrectChars=0;
+    acc=0;
   }
   
   public void paint(Graphics2D g, int t) {

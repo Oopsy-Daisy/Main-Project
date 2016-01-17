@@ -66,7 +66,6 @@ public class Main extends JPanel
         {
           lessonsON=true;
           System.out.print("hi");
-          
         }  
         if ((e.getX()>=400&&e.getX()<=450)&&(e.getY()>=800&&e.getY()<=850))
         {
