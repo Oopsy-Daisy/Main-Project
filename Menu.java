@@ -147,7 +147,7 @@ public class Menu implements ActionListener, ItemListener {
     
     icon = createImageIcon("lessons.png");
     menuItem = new JMenuItem("Lessons", icon);
-    menuItem.addActionListener(this);
+    menuItem.addActionListener(new TypingButton());
     menu.add(menuItem);
     
 //    icon = createImageIcon("challenges.png");
@@ -236,9 +236,17 @@ class ExitButton implements ActionListener {
   public ExitButton() {
     
   }
-  
   public void actionPerformed(ActionEvent e) {
     System.exit(0);
+  }
+}
+
+class TypingButton implements ActionListener {
+  public TypingButton() {
+    
+  }
+  public void actionPerformed(ActionEvent e) {
+    Main.lessonsON=true;
   }
 }
 

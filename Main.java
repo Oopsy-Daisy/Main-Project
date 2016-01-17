@@ -85,9 +85,7 @@ public class Main extends JPanel
       }
     });
     setFocusable(true); 
-    
   }
-  
   
   @Override
   public void paint(Graphics g) {
