@@ -67,12 +67,11 @@ public class Main extends JPanel
       }
       
       public void mouseReleased(MouseEvent e) {
-        if ((e.getX()>=200&&e.getX()<=250)&&(e.getY()>=800&&e.getY()<=850))
+        if (((e.getX()>=200&&e.getX()<=250)&&(e.getY()>=800&&e.getY()<=850))&&challengeON==false)
         {
           lessonsON=true;
-          System.out.print("hi");
         }  
-        if ((e.getX()>=400&&e.getX()<=450)&&(e.getY()>=800&&e.getY()<=850))
+        if (((e.getX()>=400&&e.getX()<=450)&&(e.getY()>=800&&e.getY()<=850))&&challengeON==false)
         {
           lessonsON=false;
           challengeON=false;
@@ -105,12 +104,20 @@ public class Main extends JPanel
     {
       challenge.paint(g2d);
     }
+<<<<<<< HEAD
     if (shopON==true)
     {
       shop.paint(g2d);  
     }
     g.fillRect(200, 800, 50, 50);
     g.fillRect(400, 800, 50, 50);
+=======
+    else
+    {
+      g.fillRect(200, 800, 50, 50);
+      g.fillRect(400, 800, 50, 50);
+    }
+>>>>>>> master
     
   }
   
@@ -187,6 +194,7 @@ public class Main extends JPanel
     {
       lessonsON=true;
       challengeON=false;
+      challenge.resetChallenge();
     }
     try {
       Thread.sleep(10);
