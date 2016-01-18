@@ -46,16 +46,16 @@ public class Challenges
       //Create a new instance of the BufferedReader and
       //add the FileReader to it
       BufferedReader br = new BufferedReader(fr);
-      //A string variable that will temporarily what youÃ¢â‚¬â„¢re reading
+      //A string variable that will temporarily what youÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢re reading
       
       //A dual purpose line! First it reads the next line and then
-      //it checks to see if that line was null. If itÃ¢â‚¬â„¢s null, then
-      //that means youÃ¢â‚¬â„¢re at the end of the file.
+      //it checks to see if that line was null. If itÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢s null, then
+      //that means youÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢re at the end of the file.
       while ((line=br.readLine()) != null)
       {
         challenges.add(line);
       }
-      //close the file when youÃ¢â‚¬â„¢re done
+      //close the file when youÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢re done
       br.close();
     }
     catch(IOException e)
@@ -285,6 +285,8 @@ public class Challenges
     incorrectChars=0;
     acc=0;
     randChall=-1;
+    challengeDone=false;
+    randChall=(int)(Math.random()*(challenges.size()-1));
   }
   
   public void paint(Graphics2D g) {
