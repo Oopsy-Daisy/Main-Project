@@ -1,31 +1,31 @@
 import java.awt.*;
-import javax.swing.*;
+//import javax.swing.*;
 import javax.imageio.*;
 import java.io.*;
-import java.awt.Image;
+//import java.awt.Image;
 import java.awt.image.BufferedImage;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.*;
-import javax.swing.JOptionPane;
-import javax.swing.JDialog;
-import javax.swing.JButton;
-import javax.swing.JRadioButton;
-import javax.swing.ButtonGroup;
-import javax.swing.JLabel;
-import javax.swing.ImageIcon;
-import javax.swing.BoxLayout;
-import javax.swing.Box;
-import javax.swing.BorderFactory;
-import javax.swing.border.Border;
-import javax.swing.JTabbedPane;
-import javax.swing.JPanel;
-import javax.swing.JFrame;
-import java.beans.*; //Property change stuff
-import java.util.Timer;
-import java.util.TimerTask;
-import java.awt.event.MouseListener;
-import java.awt.event.MouseEvent;
+//import java.awt.event.KeyEvent;
+//import java.awt.event.KeyListener;
+//import java.awt.event.*;
+//import javax.swing.JOptionPane;
+//import javax.swing.JDialog;
+//import javax.swing.JButton;
+//import javax.swing.JRadioButton;
+//import javax.swing.ButtonGroup;
+//import javax.swing.JLabel;
+//import javax.swing.ImageIcon;
+//import javax.swing.BoxLayout;
+//import javax.swing.Box;
+//import javax.swing.BorderFactory;
+//import javax.swing.border.Border;
+//import javax.swing.JTabbedPane;
+//import javax.swing.JPanel;
+//import javax.swing.JFrame;
+//import java.beans.*; //Property change stuff
+//import java.util.Timer;
+//import java.util.TimerTask;
+//import java.awt.event.MouseListener;
+//import java.awt.event.MouseEvent;
 
 public class Item
 {
@@ -34,7 +34,7 @@ public class Item
   private int x = 0;
   private int y = 0;
   
-  public Item(String fileLocation)
+  public Item(String fileLocation, int x, int y)
   {
     this.fileLocation = fileLocation;
     try
@@ -44,6 +44,8 @@ public class Item
     {
       System.out.println("No Image");
     }
+    this.x = x;
+    this.y = y;
   }
   
   public void paint(Graphics2D g2d)

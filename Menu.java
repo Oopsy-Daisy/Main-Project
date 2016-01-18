@@ -32,18 +32,18 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
-import javax.swing.JCheckBoxMenuItem;
-import javax.swing.JRadioButtonMenuItem;
-import javax.swing.ButtonGroup;
+//import javax.swing.JCheckBoxMenuItem;
+//import javax.swing.JRadioButtonMenuItem;
+//import javax.swing.ButtonGroup;
 import javax.swing.JMenuBar;
-import javax.swing.KeyStroke;
+//import javax.swing.KeyStroke;
 import javax.swing.ImageIcon;
 import java.awt.Desktop;
 import java.net.URI;
 import javax.swing.JPanel;
-import javax.swing.JTextArea;
-import javax.swing.JScrollPane;
-import javax.swing.JFrame;
+//import javax.swing.JTextArea;
+//import javax.swing.JScrollPane;
+//import javax.swing.JFrame;
 
 /* MenuDemo.java requires images/middle.gif. */
 
@@ -60,8 +60,8 @@ public class Menu implements ActionListener, ItemListener {
     JMenuBar menuBar;
     JMenu menu, submenu;
     JMenuItem menuItem;
-    JRadioButtonMenuItem rbMenuItem;
-    JCheckBoxMenuItem cbMenuItem;
+//    JRadioButtonMenuItem rbMenuItem;
+//    JCheckBoxMenuItem cbMenuItem;
     
     //Create the menu bar.
     menuBar = new JMenuBar();
@@ -169,7 +169,7 @@ public class Menu implements ActionListener, ItemListener {
     
     icon = createImageIcon("shop.png");
     menuItem = new JMenuItem("Shop", icon);
-    menuItem.addActionListener(this);
+    menuItem.addActionListener(new AccessShop());
     menu.add(menuItem);
     
     icon = createImageIcon("supportUs.png");
@@ -181,12 +181,12 @@ public class Menu implements ActionListener, ItemListener {
   }
   
   public void actionPerformed(ActionEvent e) {
-    JMenuItem source = (JMenuItem)(e.getSource());
+//    JMenuItem source = (JMenuItem)(e.getSource());
     System.out.println("ClickMade");
   }
   
   public void itemStateChanged(ItemEvent e) {
-    JMenuItem source = (JMenuItem)(e.getSource());
+//    JMenuItem source = (JMenuItem)(e.getSource());
 //        String s = "Item event detected."
 //                   + newline
 //                   + "    Event source: " + source.getText()
@@ -232,12 +232,29 @@ public class Menu implements ActionListener, ItemListener {
     }
   }
 }
+
+class AccessShop implements ActionListener {
+  public AccessShop() {
+    
+  }
+  public void actionPerformed(ActionEvent e) {
+    if(Main.challengeON!=true)
+    {
+      Main.shopON=true;
+      Main.lessonsON=false;
+      Main.challengeON=false;
+    }
+  }
+}
 class ExitButton implements ActionListener {
   public ExitButton() {
     
   }
   public void actionPerformed(ActionEvent e) {
-    System.exit(0);
+    if(Main.challengeON!=true)
+    {
+      System.exit(0);
+    }
   }
 }
 
@@ -246,24 +263,29 @@ class TypingButton implements ActionListener {
     
   }
   public void actionPerformed(ActionEvent e) {
-    Main.lessonsON=true;
+    if(Main.challengeON!=true)
+    {
+      Main.lessonsON=true;
+      Main.challengeON=false;
+      Main.shopON=false;
+    }
   }
 }
 
 class BrowseURL implements ActionListener {
-    public BrowseURL() {
-    } 
-    
-    public void actionPerformed(ActionEvent e)
- {
-      // Browse a URL, say google.com
-      Desktop d=Desktop.getDesktop();
-        try {
-          d.browse(new URI("http://google.com"));
-        }
-        catch (Exception f){
-          f.printStackTrace();
-        }
+  public BrowseURL() {
+  } 
+  
+  public void actionPerformed(ActionEvent e)
+  {
+    // Browse a URL, say google.com
+    Desktop d=Desktop.getDesktop();
+    try {
+      d.browse(new URI("http://google.com"));
     }
+    catch (Exception f){
+      f.printStackTrace();
+    }
+  }
 }
 

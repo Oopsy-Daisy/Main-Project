@@ -1,43 +1,48 @@
 import java.awt.*;
-import javax.swing.*;
-import javax.imageio.*;
-import java.io.*;
-import java.awt.Image;
-import java.awt.image.BufferedImage;
+//import javax.swing.*;
+//import javax.imageio.*;
+//import java.io.*;
+//import java.awt.Image;
+//import java.awt.image.BufferedImage;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.awt.event.*;
+//import java.awt.event.*;
 import javax.swing.JOptionPane;
-import javax.swing.JDialog;
-import javax.swing.JButton;
-import javax.swing.JRadioButton;
-import javax.swing.ButtonGroup;
-import javax.swing.JLabel;
-import javax.swing.ImageIcon;
-import javax.swing.BoxLayout;
-import javax.swing.Box;
-import javax.swing.BorderFactory;
-import javax.swing.border.Border;
-import javax.swing.JTabbedPane;
+//import javax.swing.JDialog;
+//import javax.swing.JButton;
+//import javax.swing.JRadioButton;
+//import javax.swing.ButtonGroup;
+//import javax.swing.JLabel;
+//import javax.swing.ImageIcon;
+//import javax.swing.BoxLayout;
+//import javax.swing.Box;
+//import javax.swing.BorderFactory;
+//import javax.swing.border.Border;
+//import javax.swing.JTabbedPane;
 import javax.swing.JPanel;
 import javax.swing.JFrame;
-import java.beans.*; //Property change stuff
-import java.util.Timer;
-import java.util.TimerTask;
+//import java.beans.*; //Property change stuff
+//import java.util.Timer;
+//import java.util.TimerTask;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseEvent;
-
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 
 public class Main extends JPanel
 {   
   //Overall Variables from Class Diagram
   private Typing type = new Typing(this);
   public static int lessonNumb=0;
-  public static int lessonsDone=0;
+  public int lessonsDone=0;
   public static Boolean typingDone = false;
   private Challenges challenge = new Challenges(this);
   public static boolean lessonsON=false;
   public static boolean challengeON=false;
+  private Shop shop = new Shop();
+  public static boolean shopON=false;
+  private PlayMusic playMusic = new PlayMusic();
   
   public Main ()
   {
@@ -91,6 +96,7 @@ public class Main extends JPanel
     super.paint(g);
     Graphics2D g2d = (Graphics2D) g;
     g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+    
     if (lessonsON==true)
     {
       type.paint(g2d,lessonNumb);
@@ -98,6 +104,10 @@ public class Main extends JPanel
     if (challengeON==true)
     {
       challenge.paint(g2d);
+    }
+    if (shopON==true)
+    {
+      shop.paint(g2d);  
     }
     g.fillRect(200, 800, 50, 50);
     g.fillRect(400, 800, 50, 50);
@@ -125,14 +135,14 @@ public class Main extends JPanel
   
   public void doAll(JFrame frame)
   {
-    
+//playMusic.playSong();
     while(lessonsON)
     {
       String s=null;
       while (s==null)
       {
         Object[] possibilities = {"1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16"};
-        s = (String)JOptionPane.showInputDialog(frame,"CHOOSE A NUMBER U CLOWN FINE SIR","Select a Lesson", JOptionPane.PLAIN_MESSAGE,null,possibilities,"1");
+        s = (String)JOptionPane.showInputDialog(frame,"Please select a lesson.","Select a Lesson", JOptionPane.PLAIN_MESSAGE,null,possibilities,"1");
       }
       lessonNumb=Integer.parseInt(s);
       while (!typingDone) {
@@ -150,10 +160,20 @@ public class Main extends JPanel
       {
         lessonsON=false;
         challengeON=true;
-        JOptionPane.showMessageDialog(frame, "WARNING THIS IS A CHALLENGE! TYPE QUICKLY", "CHALLENGE!!!!", JOptionPane.WARNING_MESSAGE);
+        JOptionPane.showMessageDialog(frame, "WARNING THIS IS A CHALLENGE! TYPE QUICKLY", "CHALLENGE!!!", JOptionPane.WARNING_MESSAGE);
       }
     }
     while(challengeON==true&&challenge.challengeDone==false)
+    {
+      this.repaint();
+      try {
+        Thread.sleep(10);
+      }
+      catch (Exception e){
+        e.printStackTrace();
+      }
+    }
+    while(shopON==true)
     {
       this.repaint();
       try {
@@ -175,5 +195,6 @@ public class Main extends JPanel
       e.printStackTrace();
     }
   }
+ 
 }
 
