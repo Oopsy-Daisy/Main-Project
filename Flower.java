@@ -14,18 +14,17 @@ public class Flower extends JPanel
   //Flower variables including the colour height and health
   private String colour;
   private int height;
-  private int health;
+  private boolean alive;
+  List<Flower> flowers = new ArrayList<Flower>(plot, colour);
   //Methods for flower, mainly idle, grow and die
   public void idle(){
     //sway animation????
   }
-  public void grow(){
-    String c = colour;
-    int health = 100;
+ 
     @Override
-public void paint(Graphics g) {
+public void grow(Graphics g) {
 Graphics2D g2d = (Graphics2D) g;
-g2d.setColor(Color.c);//GET COLOUR FROM SEED
+g2d.drawRect(50, 50, 30, 30);//plot x,plot y, img)
 
 
   }
@@ -33,3 +32,4 @@ g2d.setColor(Color.c);//GET COLOUR FROM SEED
     //remove flower from end list
   }
 }
+  
