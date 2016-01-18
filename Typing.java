@@ -9,7 +9,7 @@ import java.awt.event.KeyEvent;
 //import java.awt.event.*;
 import java.awt.Graphics2D;
 import java.util.ArrayList;
-import java.text.DecimalFormat;
+//import java.text.DecimalFormat;
 
 
 public class Typing
