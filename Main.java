@@ -100,24 +100,19 @@ public class Main extends JPanel
     {
       type.paint(g2d,lessonNumb);
     }
-    if (challengeON==true)
-    {
-      challenge.paint(g2d);
-    }
-<<<<<<< HEAD
     if (shopON==true)
     {
       shop.paint(g2d);  
     }
-    g.fillRect(200, 800, 50, 50);
-    g.fillRect(400, 800, 50, 50);
-=======
+    if (challengeON==true)
+    {
+      challenge.paint(g2d);
+    }
     else
     {
       g.fillRect(200, 800, 50, 50);
       g.fillRect(400, 800, 50, 50);
     }
->>>>>>> master
     
   }
   
