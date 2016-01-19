@@ -19,14 +19,14 @@ public class Garden extends JPanel
    //plant seed from available seeds in next avail plot
    if(seedsAvailable.length()>0)
    {
-   //plant next seed in next available plot point, set boolean isAlive to true, paint unbloomed flower, set xy to plot location
+   //plant next seed in next available plot point, set boolean isAlive to true, paint unbloomed flower img, set xy to plot location
    }
  }
  public void useFertilizer(Flower flower){
    //force grow flower
  } 
  public void background(){
-   //paints the garden, shows plot points, spots for text
+   //paints the garden, shows plot points, spots for text,just one bg img
  }
    
 }
