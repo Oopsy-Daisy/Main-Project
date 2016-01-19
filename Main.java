@@ -1,9 +1,9 @@
 import java.awt.*;
-//import javax.swing.*;
-//import javax.imageio.*;
-//import java.io.*;
-//import java.awt.Image;
-//import java.awt.image.BufferedImage;
+import javax.swing.*;
+import javax.imageio.*;
+import java.io.*;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 //import java.awt.event.*;
@@ -42,7 +42,7 @@ public class Main extends JPanel
   public static boolean challengeON=false;
   private Shop shop = new Shop();
   public static boolean shopON=false;
-  private PlayMusic playMusic = new PlayMusic();
+  //private PlayMusic playMusic = new PlayMusic();
   
   public Main ()
   {
@@ -95,6 +95,12 @@ public class Main extends JPanel
     super.paint(g);
     Graphics2D g2d = (Graphics2D) g;
     g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+    BufferedImage bg = null;
+    try {
+      bg = ImageIO.read(new File("gameBG.png"));
+    } catch (IOException e) {
+    }
+    g.drawImage(bg,0,0,null);
     
     if (lessonsON==true)
     {
@@ -150,7 +156,7 @@ public class Main extends JPanel
       while (!typingDone) {
         this.repaint();
         try {
-          Thread.sleep(1);
+          Thread.sleep(10);
         }
         catch (Exception e){
           e.printStackTrace();
@@ -169,7 +175,7 @@ public class Main extends JPanel
     {
       this.repaint();
       try {
-        Thread.sleep(1);
+        Thread.sleep(10);
       }
       catch (Exception e){
         e.printStackTrace();
@@ -177,10 +183,9 @@ public class Main extends JPanel
     }
     while(shopON==true)
     {
-      lessonsON=false;
       this.repaint();
       try {
-        Thread.sleep(1);
+        Thread.sleep(10);
       }
       catch (Exception e){
         e.printStackTrace();
@@ -193,7 +198,7 @@ public class Main extends JPanel
       challenge.resetChallenge();
     }
     try {
-      Thread.sleep(1);
+      Thread.sleep(10);
     }
     catch (Exception e){
       e.printStackTrace();
