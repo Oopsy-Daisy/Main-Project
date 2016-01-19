@@ -32,13 +32,10 @@ public class Shop
   
   public Shop()
   {
-<<<<<<< HEAD
     availableItems.add(new Item("greenFlower.png", 250, 50));
     availableItems.add(new Item("blueFlower.png", 150, 50));
-=======
     unavailableItems.add(new Item("greenFlower.png", 250, 50));
     unavailableItems.add(new Item("blueFlower.png", 150, 50));
->>>>>>> origin/master
     availableItems.add(new Item("orangeFlower.png", 50, 50));
     availableItems.add(new Item("pinkFlower.png", 350, 50));
     availableItems.add(new Item("fertilizer.png", 450, 50));
@@ -53,8 +50,4 @@ public class Shop
        i.paint(g2d);
      }
   }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> origin/master
