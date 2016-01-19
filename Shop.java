@@ -22,7 +22,6 @@ public class Shop
   
   public Shop()
   {
-<<<<<<< HEAD
     unavailableItems.add(new Item("greenFlower.png", 250, 50));
     unavailableItems.add(new Item("blueFlower.png", 150, 50));
     availableItems.add(new Item("orangeFlower.png", 50, 50));
@@ -36,22 +35,5 @@ public class Shop
      {
        i.paint(g2d);
      }
-=======
-    availableItems.add(new Item("greenFlower.png"));
-    unavailableItems.add(new Item("blueFlower.png"));
-    unavailableItems.add(new Item("orangeFlower.png"));
-    unavailableItems.add(new Item("pinkFlower.png"));
-    availableItems.add(new Item("fertilizer.png"));
-  }
-  
-  public void paint(Graphics2D g) {
-    
-    BufferedImage img = null;
-    try {
-      img = ImageIO.read(new File("strawberry.jpg"));
-    } catch (IOException e) {
-    } 
-    
->>>>>>> master
   }
 }
