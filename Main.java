@@ -67,6 +67,10 @@ public class Main extends JPanel
       }
       
       public void mouseReleased(MouseEvent e) {
+        if(shopON==true)
+        {
+          Shop.clickMade(e.getX(), e.getY());
+        }
         if (((e.getX()>=200&&e.getX()<=250)&&(e.getY()>=800&&e.getY()<=850))&&challengeON==false)
         {
           lessonsON=true;

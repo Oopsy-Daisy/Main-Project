@@ -41,6 +41,11 @@ public class Shop
     availableItems.add(new Item("fertilizer.png", 450, 50));
   }
   
+  public static void clickMade(int x, int y)
+  {
+    
+  }
+  
   public void paint(Graphics2D g) {
     Graphics2D g2d = (Graphics2D) g;
     g.setColor(Color.white);
