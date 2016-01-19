@@ -75,6 +75,7 @@ public class Main extends JPanel
         {
           lessonsON=false;
           challengeON=false;
+          shopON=false;
         }
       }
       
@@ -150,7 +151,7 @@ public class Main extends JPanel
       while (!typingDone) {
         this.repaint();
         try {
-          Thread.sleep(10);
+          Thread.sleep(1);
         }
         catch (Exception e){
           e.printStackTrace();
@@ -169,7 +170,7 @@ public class Main extends JPanel
     {
       this.repaint();
       try {
-        Thread.sleep(10);
+        Thread.sleep(1);
       }
       catch (Exception e){
         e.printStackTrace();
@@ -177,9 +178,10 @@ public class Main extends JPanel
     }
     while(shopON==true)
     {
+      lessonsON=false;
       this.repaint();
       try {
-        Thread.sleep(10);
+        Thread.sleep(1);
       }
       catch (Exception e){
         e.printStackTrace();
@@ -192,7 +194,7 @@ public class Main extends JPanel
       challenge.resetChallenge();
     }
     try {
-      Thread.sleep(10);
+      Thread.sleep(1);
     }
     catch (Exception e){
       e.printStackTrace();
