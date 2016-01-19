@@ -16,10 +16,10 @@ public class Flower extends JPanel
   private boolean isGrown;
   private boolean isAlive;
   List<Flower> flowers = new ArrayList<Flower>(plot, colour);//grown flowers, plot and colour depends on seeds
-  //Methods for flower, mainly idle, grow and die
-  public void idle(){
-    //sway animation????
-  }
+
+//  public void idle(){
+//    sway animation????
+//  }
  
     @Override
 public void grow(Graphics g) {//grows flower one completed lesson after planting 
