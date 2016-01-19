@@ -22,14 +22,15 @@ public class Flower extends JPanel
   }
  
     @Override
-public void grow(Graphics g) {//grows flower one completed lesson after planting 
+public void grow(Graphics g) {//grows flower one completed lesson after planting,changes picture to grown flower 
 Graphics2D g2d = (Graphics2D) g;
-g2d.drawRect(50, 50, 30, 30);//plot x,plot y, img)
-
+g2d.drawRect(50, 50, 30, 30);//plot x,plot y, img)//same location as seedPlanted
+//isGrown to true
 
   }
   public void die(){
     //remove flower from end list, checks the accuracy of the lesson; if below 50%, kill flower
+    //isAlive to false
   }
 }
   
