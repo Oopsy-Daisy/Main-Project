@@ -42,7 +42,7 @@ public class Main extends JPanel
   public static boolean challengeON=false;
   private Shop shop = new Shop();
   public static boolean shopON=false;
-  public static int successfullChall=0;
+  public static int coins = 0;
   //private PlayMusic playMusic = new PlayMusic();
   
   public Main ()
@@ -120,7 +120,7 @@ public class Main extends JPanel
       g.fillRect(200, 800, 50, 50);
       g.fillRect(400, 800, 50, 50);
     }
-    
+
   }
   
   //Option Methods
