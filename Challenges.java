@@ -46,16 +46,16 @@ public class Challenges
       //Create a new instance of the BufferedReader and
       //add the FileReader to it
       BufferedReader br = new BufferedReader(fr);
-      //A string variable that will temporarily what youÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢re reading
+      //A string variable that will temporarily what youÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â‚¬Å¾Ã‚Â¢re reading
       
       //A dual purpose line! First it reads the next line and then
-      //it checks to see if that line was null. If itÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢s null, then
-      //that means youÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢re at the end of the file.
+      //it checks to see if that line was null. If itÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â‚¬Å¾Ã‚Â¢s null, then
+      //that means youÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â‚¬Å¾Ã‚Â¢re at the end of the file.
       while ((line=br.readLine()) != null)
       {
         challenges.add(line);
       }
-      //close the file when youÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢re done
+      //close the file when youÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬ÃƒÂ¢Ã¢â‚¬Å¾Ã‚Â¢re done
       br.close();
     }
     catch(IOException e)
@@ -373,6 +373,10 @@ public class Challenges
       {
         elapsedTime=(endTime - startTime)/1000;
         g.drawString(""+(int)elapsedTime,1000, 600); 
+      }
+      if (acc>=80&&challengeDone==true)
+      {
+        ba.successfullChall++;
       }
     } 
   }
