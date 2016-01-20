@@ -42,6 +42,7 @@ public class Main extends JPanel
   public static boolean challengeON=false;
   private Shop shop = new Shop();
   public static boolean shopON=false;
+  public static int successfullChall=0;
   //private PlayMusic playMusic = new PlayMusic();
   
   public Main ()
@@ -67,10 +68,6 @@ public class Main extends JPanel
       }
       
       public void mouseReleased(MouseEvent e) {
-        if(shopON==true)
-        {
-          Shop.clickMade(e.getX(), e.getY());
-        }
         if (((e.getX()>=200&&e.getX()<=250)&&(e.getY()>=800&&e.getY()<=850))&&challengeON==false)
         {
           lessonsON=true;
