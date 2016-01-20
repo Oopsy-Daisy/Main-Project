@@ -49,6 +49,31 @@ public class Item
     this.y = y;
   }
   
+  public String getName()
+  {
+    return fileLocation;
+  }
+  
+  public int getX()
+  {
+    return x;
+  }
+  
+  public int getY()
+  {
+    return y;
+  }
+  
+  public int getWidth()
+  {
+    return img.getWidth();
+  }
+  
+  public int getHeight()
+  {
+    return img.getHeight();
+  }
+  
   public void paint(Graphics2D g2d)
   {
     g2d.drawImage(img, x, y, null);
