@@ -17,27 +17,23 @@ public class Flower extends JPanel
   public int plotY;
   private boolean isGrown = false;
   private boolean isAlive = false;
+  private int currentF = 0; //updates everytime a new flower is planted or dies
   Flower[] flowers = new Flower[3];//colour depends on seeds
   
   public Flower(){
-    flowers[1] = new Flower (10,10,seed.colour,false,false);
-    flowers[2] = new Flower (20,10,seed.colour,false,false);
-    flowers[3] = new Flower (30,10,seed.colour,false,false);
+    flowers[0] = new Flower (10,10,"",false,false);
+    flowers[1] = new Flower (20,10,"",false,false);
+    flowers[2] = new Flower (30,10,"",false,false);
   }
   
-//  public void idle(){
-//    sway animation????
-//  }
+
   
-  @Override
-  public void grow(Graphics g) {//grows flower one completed lesson after planting 
-    Graphics2D g2d = (Graphics2D) g;
-   
     
     
   }
   public void die(){
-    //set isAlive to false, checks the accuracy of the lesson; if below 50%, kill flower
+    //set isAlive to false, checks the accuracy of the challenge; if below 50%, kill flower
   }
 }
+
 
