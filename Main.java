@@ -44,8 +44,8 @@ public class Main extends JPanel
   private Shop shop = new Shop();
   public static boolean shopON=false;
   public static int successfullChall=0;
-  public static int coins=0;
   public static ArrayList<Item> currentInventory = new ArrayList<Item>();
+  public static int coins = 0;
   //private PlayMusic playMusic = new PlayMusic();
   
   public Main ()
@@ -71,10 +71,6 @@ public class Main extends JPanel
       }
       
       public void mouseReleased(MouseEvent e) {
-        if(shopON==true)
-        {
-          Shop.clickMade(e.getX(), e.getY());
-        }
         if (((e.getX()>=200&&e.getX()<=250)&&(e.getY()>=800&&e.getY()<=850))&&challengeON==false)
         {
           lessonsON=true;
@@ -127,7 +123,7 @@ public class Main extends JPanel
       g.fillRect(200, 800, 50, 50);
       g.fillRect(400, 800, 50, 50);
     }
-    
+
   }
   
   //Option Methods
