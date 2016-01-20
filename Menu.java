@@ -281,7 +281,7 @@ class BrowseURL implements ActionListener {
     // Browse a URL, say google.com
     Desktop d=Desktop.getDesktop();
     try {
-      d.browse(new URI("http://google.com"));
+      d.browse(new URI("https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YZZQ2NCD8UBKS"));
     }
     catch (Exception f){
       f.printStackTrace();
