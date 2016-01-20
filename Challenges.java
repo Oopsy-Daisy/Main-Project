@@ -347,6 +347,11 @@ public class Challenges
       {
         endTime=System.currentTimeMillis();
         challengeDone=true;
+        acc = Math.floor(correctChars/(correctChars+incorrectChars)*100);
+        if (acc>=80)
+        {
+          ba.coins++;
+        }
       }
       x=2;
       for (int i1 = 0; i1 < colourChars.size(); i1++)
@@ -373,10 +378,6 @@ public class Challenges
       {
         elapsedTime=(endTime - startTime)/1000;
         g.drawString(""+(int)elapsedTime,1000, 600); 
-      }
-      if (acc>=80&&challengeDone==true)
-      {
-        ba.successfullChall++;
       }
     } 
   }
