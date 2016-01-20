@@ -32,11 +32,11 @@ public class Shop
   
   public Shop()
   {
-    availableItems.add(new Item("orangeFlower.png", 150, 70));
-    unavailableItems.add(new Item("blueFlower.png", 350, 100));
-    unavailableItems.add(new Item("greenFlower.png", 550, 75));
-    unavailableItems.add(new Item("pinkFlower.png", 750, 98));
-    unavailableItems.add(new Item("fertilizer.png", 950, 135));
+    availableItems.add(new Item("orangeFlower.png", 150, 70,"orange"));
+    unavailableItems.add(new Item("blueFlower.png", 350, 100,"blue"));
+    unavailableItems.add(new Item("greenFlower.png", 550, 75,"green"));
+    unavailableItems.add(new Item("pinkFlower.png", 750, 98,"pink"));
+    unavailableItems.add(new Item("fertilizer.png", 950, 135,"fert"));
   }
   
   public static void updateItemsAvail()
@@ -65,31 +65,31 @@ public class Shop
     {
       Main.coins = Main.coins-1;
       System.out.println("Orange Flower Sold");
-      Main.currentInventory.add(new Item("orangeFlower.png", 50, 50));
+      Main.currentInventory.add(new Item("orangeFlower.png", 50, 50,"orange"));
     }
     if(ableToBuyItem(availableItems, "blueFlower.png", x, y, 2) == true)
     {
       Main.coins = Main.coins-2;
       System.out.println("Blue Flower Sold");
-      Main.currentInventory.add(new Item("blueFlower.png", 150, 50));
+      Main.currentInventory.add(new Item("blueFlower.png", 150, 50,"blue"));
     }
     if(ableToBuyItem(availableItems, "greenFlower.png", x, y, 3) == true)
     {
       Main.coins = Main.coins-3;
       System.out.println("Green Flower Sold");
-      Main.currentInventory.add(new Item("greenFlower.png", 250, 50));
+      Main.currentInventory.add(new Item("greenFlower.png", 250, 50,"green"));
     }
     if(ableToBuyItem(availableItems, "pinkFlower.png", x, y, 3) == true)
     {
       Main.coins = Main.coins-3;
       System.out.println("Pink Flower Sold");
-      Main.currentInventory.add(new Item("pinkFlower.png", 350, 50));
+      Main.currentInventory.add(new Item("pinkFlower.png", 350, 50,"pink"));
     }
     if(ableToBuyItem(availableItems, "fertilizer.png", x, y, 2) == true)
     {
       Main.coins = Main.coins-2;
       System.out.println("Ferilizer Sold");
-      Main.currentInventory.add(new Item("fertilizer.png", 50, 50));
+      Main.currentInventory.add(new Item("fertilizer.png", 50, 50,"fert"));
     }
   }
   
