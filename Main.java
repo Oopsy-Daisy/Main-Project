@@ -46,7 +46,6 @@ public class Main extends JPanel
   public static int successfullChall=0;
   public static ArrayList<Item> currentInventory = new ArrayList<Item>();
   public static int coins = 0;
-  public static int fertilizerCount = 0;
   //private PlayMusic playMusic = new PlayMusic();
   
   public Main ()
@@ -76,7 +75,7 @@ public class Main extends JPanel
         {
           lessonsON=true;
         }  
-        if (((e.getX()>=400&&e.getX()<=450)&&(e.getY()>=800&&e.getY()<=850))&&challengeON==false)
+        if (((e.getX()>=25&&e.getX()<=175)&&(e.getY()>=775&&e.getY()<=899))&&challengeON==false)
         {
           lessonsON=false;
           shopON=false;
@@ -105,6 +104,11 @@ public class Main extends JPanel
       bg = ImageIO.read(new File("gameBG.png"));
     } catch (IOException e) {
     }
+    BufferedImage back = null;
+    try {
+      back = ImageIO.read(new File("BackButton.png"));
+    } catch (IOException e) {
+    }
     g.drawImage(bg,0,0,null);
     
     if (lessonsON==true)
@@ -122,9 +126,9 @@ public class Main extends JPanel
     else
     {
       g.fillRect(200, 800, 50, 50);
-      g.fillRect(400, 800, 50, 50);
+      g.drawImage(back,25,775,null);
     }
-
+    
   }
   
   //Option Methods
@@ -209,6 +213,6 @@ public class Main extends JPanel
       e.printStackTrace();
     }
   }
- 
+  
 }
 
