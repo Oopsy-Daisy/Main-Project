@@ -2,7 +2,7 @@ import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import java.io.InputStream;
-  import java.net.URL;
+import java.net.URL;
 
 public class PlayMusic
 {  
@@ -13,12 +13,11 @@ public class PlayMusic
   public void playSong()
   {
     try{
-      URL s = this.getClass().getResource("piano2.wav");
-      System.out.println(s);
+      URL s = this.getClass().getResource("seal.wav");
       AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(s);
       Clip clip = AudioSystem.getClip();
       clip.open(audioInputStream);
-      clip.start();
+      clip.loop(Clip.LOOP_CONTINUOUSLY);
     }
     catch(Exception ex)
     {

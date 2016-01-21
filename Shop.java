@@ -29,7 +29,7 @@ public class Shop
   //Method to sell items and to buy back items from user
   private static ArrayList<Item> availableItems = new ArrayList<Item>();
   private static ArrayList<Item>  unavailableItems = new ArrayList<Item>();
-   private Main ba;
+   private static Main ba;
   
   public Shop()
   {
@@ -38,7 +38,7 @@ public class Shop
     unavailableItems.add(new Item("blueFlower.png", 350, 100,"blue"));
     unavailableItems.add(new Item("greenFlower.png", 550, 75,"green"));
     unavailableItems.add(new Item("pinkFlower.png", 750, 98,"pink"));
-    unavailableItems.add(new Item("fertilizer.png", 950, 135,"fert"));
+    unavailableItems.add(new Item("fertilizer.png", 950, 135,""));
   }
   
   public static void updateItemsAvail()
@@ -67,31 +67,31 @@ public class Shop
     {
       ba.coins = ba.coins-1;
       System.out.println("Orange Flower Sold");
-      ba.currentInventory.add(new Item("orangeFlower.png", 50, 50));
+      ba.currentInventory.add(new Item("orangeFlower.png", 50, 50, "orange"));
     }
     if(ableToBuyItem(availableItems, "blueFlower.png", x, y, 2) == true)
     {
       ba.coins = ba.coins-2;
       System.out.println("Blue Flower Sold");
-      ba.currentInventory.add(new Item("blueFlower.png", 150, 50));
+      ba.currentInventory.add(new Item("blueFlower.png", 150, 50, "blue"));
     }
     if(ableToBuyItem(availableItems, "greenFlower.png", x, y, 3) == true)
     {
       ba.coins = ba.coins-3;
       System.out.println("Green Flower Sold");
-      ba.currentInventory.add(new Item("greenFlower.png", 250, 50));
+      ba.currentInventory.add(new Item("greenFlower.png", 250, 50, "green"));
     }
     if(ableToBuyItem(availableItems, "pinkFlower.png", x, y, 3) == true)
     {
       ba.coins = ba.coins-3;
       System.out.println("Pink Flower Sold");
-      ba.currentInventory.add(new Item("pinkFlower.png", 350, 50));
+      ba.currentInventory.add(new Item("pinkFlower.png", 350, 50, "pink"));
     }
     if(ableToBuyItem(availableItems, "fertilizer.png", x, y, 2) == true)
     {
       ba.coins = ba.coins-2;
       System.out.println("Ferilizer Sold");
-      ba.fertilizerCount++;
+      ba.fertilizerInventory++;
       //Main.currentInventory.add(new Item("fertilizer.png", 50, 50));
     }
   }

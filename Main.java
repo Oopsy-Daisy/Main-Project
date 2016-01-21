@@ -46,7 +46,8 @@ public class Main extends JPanel
   public static int successfullChall=0;
   public static ArrayList<Item> currentInventory = new ArrayList<Item>();
   public static int coins = 0;
-  //private PlayMusic playMusic = new PlayMusic();
+  public static int fertilizerInventory = 0;
+  private static PlayMusic playMusic = new PlayMusic();
   
   public Main ()
   {
@@ -143,7 +144,7 @@ public class Main extends JPanel
     frame.setSize(1280, 984);
     frame.setVisible(true);
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    
+    //playMusic.playSong();
     while (true)
     {
       ba.doAll(frame);
@@ -158,7 +159,7 @@ public class Main extends JPanel
       String s=null;
       while (s==null)
       {
-        Object[] possibilities = {"1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16"};
+        Object[] possibilities = {"1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17"};
         s = (String)JOptionPane.showInputDialog(frame,"Please select a lesson.","Select a Lesson", JOptionPane.PLAIN_MESSAGE,null,possibilities,"1");
       }
       lessonNumb=Integer.parseInt(s);
