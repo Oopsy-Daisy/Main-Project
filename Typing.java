@@ -293,6 +293,9 @@ public class Typing
     }
     else
     {
+      g.setColor(Color.white);
+      g.fillRect (0, 5, 1280, 50);
+      g.setColor(Color.black);
       g.drawString(lessons.get(t*2-2), 3, i);i+=14;g.drawString(lessons.get(t*2-1), 3, i); 
       
       if (charNumb<lessons.get(t*2-1).length())
@@ -340,6 +343,8 @@ public class Typing
         
       }
       x=2;
+      g.setColor(Color.white);
+        g.fillRect (0, 475, 1280, 50);
       for (int i1 = 0; i1 < colourChars.size(); i1++)
       {
         fontSize = 11;

@@ -72,9 +72,12 @@ public class Main extends JPanel
       }
       
       public void mouseReleased(MouseEvent e) {
-        if (((e.getX()>=200&&e.getX()<=250)&&(e.getY()>=800&&e.getY()<=850))&&challengeON==false)
+        if (((e.getX()>=450&&e.getX()<=745)&&(e.getY()>=800&&e.getY()<=893))&&challengeON==false)
         {
-          lessonsON=true;
+          if(lessonsON==false && shopON==false && challengeON==false)
+          {
+            lessonsON=true;
+          }
         }  
         if (((e.getX()>=25&&e.getX()<=175)&&(e.getY()>=775&&e.getY()<=899))&&challengeON==false)
         {
@@ -111,6 +114,11 @@ public class Main extends JPanel
     } catch (IOException e) {
     }
     g.drawImage(bg,0,0,null);
+    BufferedImage lesson = null;
+    try {
+      lesson = ImageIO.read(new File("lessonButton.png"));
+    } catch (IOException e){
+    }
     
     if (lessonsON==true)
     {
@@ -124,10 +132,17 @@ public class Main extends JPanel
     {
       challenge.paint(g2d);
     }
+    if (lessonsON==false && shopON==false && challengeON==false)
+    {
+      g.drawImage(back,25,775,null);
+      g.drawImage(lesson,450, 800, null);
+    }
     else
     {
-      g.fillRect(200, 800, 50, 50);
-      g.drawImage(back,25,775,null);
+      if(challengeON==false)
+      {
+        g.drawImage(back,25,775,null);
+      }
     }
     
   }
@@ -153,7 +168,6 @@ public class Main extends JPanel
   
   public void doAll(JFrame frame)
   {
-//playMusic.playSong();
     while(lessonsON)
     {
       String s=null;

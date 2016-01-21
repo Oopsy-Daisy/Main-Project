@@ -294,6 +294,9 @@ public class Challenges
     {
       startTime=System.currentTimeMillis();
     }
+    g.setColor(Color.white);
+    g.fillRect (0, 5, 1280, 50);
+    g.setColor(Color.black);
     int i=25;
     int fontSize = 11;
     g.setFont(new Font("Courier New", Font.PLAIN, fontSize));
@@ -354,6 +357,8 @@ public class Challenges
         }
       }
       x=2;
+      g.setColor(Color.white);
+      g.fillRect (0, 475, 1280, 50);
       for (int i1 = 0; i1 < colourChars.size(); i1++)
       {
         fontSize = 11;
