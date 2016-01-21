@@ -46,7 +46,8 @@ public class Main extends JPanel
   public static int successfullChall=0;
   public static ArrayList<Item> currentInventory = new ArrayList<Item>();
   public static int coins = 0;
-  private static PlayMusic playMusic = new PlayMusic();
+  public static int fertilizerCount = 0;
+  //private PlayMusic playMusic = new PlayMusic();
   
   public Main ()
   {
@@ -138,7 +139,7 @@ public class Main extends JPanel
     frame.setSize(1280, 984);
     frame.setVisible(true);
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    playMusic.playSong();
+    
     while (true)
     {
       ba.doAll(frame);
@@ -147,7 +148,7 @@ public class Main extends JPanel
   
   public void doAll(JFrame frame)
   {
-    
+//playMusic.playSong();
     while(lessonsON)
     {
       String s=null;
