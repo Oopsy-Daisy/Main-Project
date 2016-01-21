@@ -88,6 +88,11 @@ public class Menu implements ActionListener, ItemListener {
     menuItem.addActionListener(new ExitButton());
     menu.add(menuItem);
     
+    icon = createImageIcon("supportUs.png");
+    menuItem = new JMenuItem("Support Us", icon);
+    menuItem.addActionListener(new BrowseURL());
+    menu.add(menuItem);
+    
 //        menuItem = new JMenuItem(icon);
 //        menuItem.setMnemonic(KeyEvent.VK_D);
 //        menuItem.addActionListener(this);
@@ -172,9 +177,12 @@ public class Menu implements ActionListener, ItemListener {
     menuItem.addActionListener(new AccessShop());
     menu.add(menuItem);
     
-    icon = createImageIcon("supportUs.png");
-    menuItem = new JMenuItem("Support Us", icon);
-    menuItem.addActionListener(new BrowseURL());
+    menu = new JMenu("Help");
+    menuBar.add(menu);
+    
+    icon = createImageIcon("help.png");
+    menuItem = new JMenuItem("Help", icon);
+    menuItem.addActionListener(new HelpButton());
     menu.add(menuItem);
     
     return menuBar;
@@ -269,6 +277,14 @@ class TypingButton implements ActionListener {
       Main.challengeON=false;
       Main.shopON=false;
     }
+  }
+}
+
+class HelpButton implements ActionListener {
+  public HelpButton() {
+    
+  }
+  public void actionPerformed(ActionEvent e) {
   }
 }
 
