@@ -35,7 +35,7 @@ public class Item
   private int x = 0;
   private int y = 0;
   
-  public Item(String fileLocation, int x, int y)
+  public Item(String fileLocation, int x, int y, String colour)
   {
     this.fileLocation = fileLocation;
     try
