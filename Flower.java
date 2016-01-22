@@ -17,18 +17,58 @@ public class Flower extends JPanel
   public int plotY = 0;
   public boolean isAlive = false;
   public int currentF = 0; //updates everytime a new flower is planted or dies
-  static Flower[] flowers = new Flower[5];//colour depends on seeds
+ private static Garden gar;
   private Main ba;
   private Challenges chall;
-  
+//   BufferedImage orange = null;
+//   BufferedImage blue = null;
+//    BufferedImage green = null;
+//    BufferedImage pink = null;
+//  
   public Flower(int plotX,int plotY,boolean isAlive,Challenges chall, Main ba){
     this.ba=ba;
     this.chall = chall;
-    flowers[0] = new Flower (10,10,false,chall,ba);
-    flowers[1] = new Flower (20,10,false,chall,ba);
-    flowers[2] = new Flower (30,10,false,chall,ba);
+    this.gar = gar;
+    
+    
   }
   
+  public void plantSeed(Graphics g){
+    //plant seed from available seeds in next avail plot
+    if(ba.currentInventory.size()>0)
+    {
+      if(currentF<=5){
+        
+        //plant chosen seed in next available plot point, set boolean isAlive to true for that flower, paint unbloomed flower, 
+        if(ba.currentInventory.get(0).getName().equals("orangeFlower.png")){
+          gar.flowers[currentF].isAlive = true;
+          g.drawImage(gar.orange,gar.flowers[currentF].plotX,gar.flowers[currentF].plotY,null);
+          currentF++;
+        }
+        if(ba.currentInventory.get(0).getName().equals("blueFlower.png")){
+          gar.flowers[currentF].isAlive = true;
+          g.drawImage(gar.blue,gar.flowers[currentF].plotX,gar.flowers[currentF].plotY,null);
+          currentF++;
+        }
+        if(ba.currentInventory.get(0).getName().equals("greenFlower.png")){
+          gar.flowers[currentF].isAlive = true;
+          g.drawImage(gar.green,gar.flowers[currentF].plotX,gar.flowers[currentF].plotY,null);
+          currentF++;
+        }
+        if(ba.currentInventory.get(0).getName().equals("pinkFlower.png")){
+          gar.flowers[currentF].isAlive = true;
+          g.drawImage(gar.pink,gar.flowers[currentF].plotX,gar.flowers[currentF].plotY,null);
+          currentF++;
+        }
+        
+        
+        
+      }
+      else{
+        System.out.println("No available seeds. Purchase some from the store.");
+      }
+    }
+  }
   public void die(){
     //set isAlive to false, checks the accuracy of the challenge; if below 50%, kill flower
     if (chall.getAcc()<50){
@@ -42,6 +82,31 @@ public class Flower extends JPanel
       }
     }
   }
-}
+  
+//  public void paint(Graphics g) {
+//    super.paint(g);
+//    Graphics2D g2d = (Graphics2D) g;
+//    g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+//    try {
+//      orange = ImageIO.read(new File("orangeFlower.png"));
+//    } catch (IOException e) {
+//    }
+//    
+//    try {
+//      blue = ImageIO.read(new File("blueFlower.png"));
+//    } catch (IOException e) {
+//    }
+//   
+//    try {
+//      green = ImageIO.read(new File("greenFlower.png"));
+//    } catch (IOException e) {
+//    }
+//    
+//    try {
+//      pink = ImageIO.read(new File("pinkFlower.png"));
+//    } catch (IOException e) {
+//    }
+  }
+
 
 
