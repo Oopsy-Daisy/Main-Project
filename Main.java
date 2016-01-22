@@ -45,9 +45,9 @@ public class Main extends JPanel
   public static boolean shopON=false;
   public static int successfullChall=0;
   public static ArrayList<Item> currentInventory = new ArrayList<Item>();
-  public static int coins = 500;
+  public static int coins = 0;
   public static int fertilizerInventory = 0;
-  private Garden garden = new Garden();
+//  private Garden garden = new Garden();
   private static PlayMusic playMusic = new PlayMusic();
   public static boolean handGuideON=false;
   private UserHandGuide guide = new UserHandGuide();
@@ -129,7 +129,7 @@ public class Main extends JPanel
       lesson = ImageIO.read(new File("lessonButton.png"));
     } catch (IOException e){
     }
-    garden.paint(g2d);
+    //garden.paint(g2d);
     
     if (lessonsON==true)
     {
