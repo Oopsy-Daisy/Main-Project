@@ -11,62 +11,60 @@ import java.awt.Graphics2D;
 
 public class Garden extends JPanel
 {
-  
+  private Challenges chall;
   private Main ba;
-  private static Flower F;
+  static Flower[] flowers = new Flower[5];//colour depends on seeds
+  BufferedImage orange = null;
+  BufferedImage blue = null;
+  BufferedImage green = null;
+  BufferedImage pink = null;
+  
   
   public Garden()
   {
     this.ba=ba;
-    this.F=F;
-  }
-  
-  public void plantSeed(Graphics2D g){
-    //plant seed from available seeds in next avail plot
-    if(ba.currentInventory.size()>0)
-    {
-      if(F.currentF<=5){
-        
-        //plant chosen seed in next available plot point, set boolean isAlive to true for that flower, paint unbloomed flower, 
-        if(ba.currentInventory.get(0).getName().equals("orangeFlower.png")){
-          Flower.flowers[F.currentF].isAlive = true;
-          g.drawImage(F.currentF,Flower.flowers[F.currentF].plotX,Flower.flowers[F.currentF].plotY,null);
-          F.currentF++;
-        }
-        if(ba.currentInventory.get(0).getName().equals("blueFlower.png")){
-          Flower.flowers[F.currentF].isAlive = true;
-          g.drawImage(F.currentF,Flower.flowers[F.currentF].plotX,Flower.flowers[F.currentF].plotY,null);
-          F.currentF++;
-        }
-        if(ba.currentInventory.get(0).getName().equals("greenFlower.png")){
-          Flower.flowers[F.currentF].isAlive = true;
-          g.drawImage(F.currentF,Flower.flowers[F.currentF].plotX,Flower.flowers[F.currentF].plotY,null);
-          F.currentF++;
-        }
-        if(ba.currentInventory.get(0).getName().equals("pinkFlower.png")){
-          Flower.flowers[F.currentF].isAlive = true;
-          g.drawImage(F.currentF,Flower.flowers[F.currentF].plotX,Flower.flowers[F.currentF].plotY,null);
-          F.currentF++;
-        }
-        
-      }
-      else{
-        System.out.println("No available seeds. Purchase some from the store.");
-      }
-    }
+    this.chall = chall;
+//    this.F=F;
+    flowers[0] = new Flower (10,10,false,chall,ba);
+    flowers[1] = new Flower (20,10,false,chall,ba);
+    flowers[2] = new Flower (30,10,false,chall,ba);
+    flowers[3] = new Flower (40,10,false,chall,ba);
+    flowers[4] = new Flower (50,10,false,chall,ba);
   }
   
   
-  @Override
   public void paint(Graphics g) {
     super.paint(g);
     Graphics2D g2d = (Graphics2D) g;
     g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-    BufferedImage currentF = null;
     try {
-      currentF = ImageIO.read(new File(ba.currentInventory.get(0).getName()));
+      orange = ImageIO.read(new File("orangeFlower.png"));
     } catch (IOException e) {
     }
+    try {
+      blue = ImageIO.read(new File("blueFlower.png"));
+    } catch (IOException e) {
+    }
+    try {
+      green = ImageIO.read(new File("greenFlower.png"));
+    } catch (IOException e) {
+    }
+    
+    try {
+      pink = ImageIO.read(new File("pinkFlower.png"));
+    } catch (IOException e) {
+    }
+//@Override
+//  public void paint(Graphics g) {
+//    super.paint(g);
+//    Graphics2D g2d = (Graphics2D) g;
+//    g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+//    BufferedImage currentF = null;
+//    try {
+//      currentF = ImageIO.read(new File(ba.currentInventory[0].getName()));
+//    } catch (IOException e) {
+//    }
+//}
   }
 }
 // public void useFertilizer(Flower flower){
