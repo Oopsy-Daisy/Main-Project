@@ -33,13 +33,13 @@ public class Flower extends JPanel
   public void die(){
     //set isAlive to false, checks the accuracy of the challenge; if below 50%, kill flower
     if (chall.getAcc()<50){
-      if(ba.fertilizerCount<=0){
+      if(ba.fertilizerInventory<=0){
         isAlive = false;
         //stop printing
         currentF--;
       }
       else{
-        ba.fertilizerCount--;
+        ba.fertilizerInventory--;
       }
     }
   }
