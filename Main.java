@@ -48,6 +48,7 @@ public class Main extends JPanel
   public static ArrayList<Item> currentInventory = new ArrayList<Item>();
   public static int coins = 0;
   public static int fertilizerInventory = 0;
+  private Garden garden = new Garden(this);
   private static PlayMusic playMusic = new PlayMusic();
   public static boolean handGuideON=false;
   private UserHandGuide guide = new UserHandGuide();
@@ -122,12 +123,14 @@ public class Main extends JPanel
       back = ImageIO.read(new File("BackButton.png"));
     } catch (IOException e) {
     }
+    
     g.drawImage(bg,0,0,null);
     BufferedImage lesson = null;
     try {
       lesson = ImageIO.read(new File("lessonButton.png"));
     } catch (IOException e){
     }
+    garden.paint(g2d);
     
     if (lessonsON==true)
     {
