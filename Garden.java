@@ -11,7 +11,7 @@ import java.awt.Graphics2D;
 
 public class Garden extends JPanel
 {
-  public List<String> seedsAvailable = new ArrayList<String>();//each object has a colour
+  
   private Main ba;
   private Flower F;
   
@@ -23,36 +23,42 @@ public class Garden extends JPanel
   
   public void plantSeed(){
     //plant seed from available seeds in next avail plot
-    if(seedsAvailable.length()>0)
+    if(ba.currentInventory.length()>0)
     {
       if(F.currentF<=5){
         
         //plant chosen seed in next available plot point, set boolean isAlive to true for that flower, paint unbloomed flower, 
-        if(ba.currentInventory[0].getName().equals("orangeFlower.png"){
+        if(ba.currentInventory[0].getName().equals("orangeFlower.png")){
           flower[F.currentF].isAlive = true;
-          g.drawImage(currentF,flower[F.currentF].plotX,flower[F.currentF].plotY,,null);
+          g.drawImage(currentF,flower[F.currentF].plotX,flower[F.currentF].plotY,null);
           F.currentF++;
         }
-           if(ba.currentInventory[0].getName().equals("blueFlower.png"){
+           if(ba.currentInventory[0].getName().equals("blueFlower.png")){
              flower[currentF].isAlive = true;
-             g.drawImage(currentF,flower[F.currentF].plotX,flower[F.currentF].plotY,,null);
+             g.drawImage(currentF,flower[F.currentF].plotX,flower[F.currentF].plotY,null);
              F.currentF++;
            }
-              if(ba.currentInventory[0].getName().equals("greenFlower.png"){
+              if(ba.currentInventory[0].getName().equals("greenFlower.png")){
                 flower[currentF].isAlive = true;
-              g.drawImage(currentF,flower[F.currentF].plotX,flower[F.currentF].plotY,,null);
+              g.drawImage(currentF,flower[F.currentF].plotX,flower[F.currentF].plotY,null);
                 F.currentF++;
               }
-                 if(ba.currentInventory[0].getName().equals("pinkFlower.png"){
+                 if(ba.currentInventory[0].getName().equals("pinkFlower.png")){
                    flower[currentF].isAlive = true;
-                   g.drawImage(currentF,flower[F.currentF].plotX,flower[F.currentF].plotY,,null);
+                   g.drawImage(currentF,flower[F.currentF].plotX,flower[F.currentF].plotY,null);
                    F.currentF++;
                  }
                     
                     
                     
                     }
- }
+      else{
+        System.out.println("No available seeds. Purchase some from the store.");
+      }
+    }
+  }
+  
+ 
 @Override
   public void paint(Graphics g) {
     super.paint(g);
@@ -63,6 +69,8 @@ public class Garden extends JPanel
       currentF = ImageIO.read(new File(ba.currentInventory[0].getName()));
     } catch (IOException e) {
     }
+}
+  }
 // public void useFertilizer(Flower flower){
 //   //force grow flower,must have fertilizer (purchased from shop)
 // } 
