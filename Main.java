@@ -75,6 +75,10 @@ public class Main extends JPanel
       }
       
       public void mouseReleased(MouseEvent e) {
+        if(shopON==true)
+        {
+          Shop.clickMade(e.getX(), e.getY());
+        }
         if (((e.getX()>=450&&e.getX()<=745)&&(e.getY()>=800&&e.getY()<=893)) && challengeON==false)
         {
           if(lessonsON==false && shopON==false && challengeON==false)
@@ -223,7 +227,7 @@ public class Main extends JPanel
         e.printStackTrace();
       }
     }
-        while(handGuideON==true)
+    while(handGuideON==true)
     {
       this.repaint();
       try {
