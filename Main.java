@@ -1,4 +1,3 @@
-
 import java.awt.*;
 import javax.swing.*;
 import javax.imageio.*;
@@ -46,7 +45,7 @@ public class Main extends JPanel
   public static boolean shopON=false;
   public static int successfullChall=0;
   public static ArrayList<Item> currentInventory = new ArrayList<Item>();
-  public static int coins = 0;
+  public static int coins = 500;
   public static int fertilizerInventory = 0;
   private Garden garden = new Garden();
   private static PlayMusic playMusic = new PlayMusic();
