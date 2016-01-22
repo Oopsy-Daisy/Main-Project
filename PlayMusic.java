@@ -9,7 +9,7 @@ public class PlayMusic
   public void playMusic()
   {
   }
-    
+  
   public void playSong()
   {
     try{
@@ -17,6 +17,11 @@ public class PlayMusic
       AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(s);
       Clip clip = AudioSystem.getClip();
       clip.open(audioInputStream);
+      clip.start();
+      if(Main.musicON == false)
+      {
+        clip.stop();
+      } 
       clip.loop(Clip.LOOP_CONTINUOUSLY);
     }
     catch(Exception ex)

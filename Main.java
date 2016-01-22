@@ -48,6 +48,9 @@ public class Main extends JPanel
   public static int coins = 0;
   public static int fertilizerInventory = 0;
   private static PlayMusic playMusic = new PlayMusic();
+  public static boolean handGuideON=false;
+  private UserHandGuide guide = new UserHandGuide();
+  public static boolean musicON=true;
   
   public Main ()
   {
@@ -72,17 +75,18 @@ public class Main extends JPanel
       }
       
       public void mouseReleased(MouseEvent e) {
-        if (((e.getX()>=450&&e.getX()<=745)&&(e.getY()>=800&&e.getY()<=893))&&challengeON==false)
+        if (((e.getX()>=450&&e.getX()<=745)&&(e.getY()>=800&&e.getY()<=893)) && challengeON==false)
         {
           if(lessonsON==false && shopON==false && challengeON==false)
           {
             lessonsON=true;
           }
         }  
-        if (((e.getX()>=25&&e.getX()<=175)&&(e.getY()>=775&&e.getY()<=899))&&challengeON==false)
+        if (((e.getX()>=25&&e.getX()<=175)&&(e.getY()>=775&&e.getY()<=899)) && challengeON==false)
         {
           lessonsON=false;
           shopON=false;
+          handGuideON=false;
         }
       }
       
@@ -132,7 +136,11 @@ public class Main extends JPanel
     {
       challenge.paint(g2d);
     }
-    if (lessonsON==false && shopON==false && challengeON==false)
+    if (handGuideON==true)
+    {
+      guide.paint(g2d);
+    }
+    if (lessonsON==false && shopON==false && challengeON==false && handGuideON==false)
     {
       g.drawImage(back,25,775,null);
       g.drawImage(lesson,450, 800, null);
@@ -159,7 +167,7 @@ public class Main extends JPanel
     frame.setSize(1280, 984);
     frame.setVisible(true);
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    //playMusic.playSong();
+    playMusic.playSong();
     while (true)
     {
       ba.doAll(frame);
@@ -206,6 +214,16 @@ public class Main extends JPanel
       }
     }
     while(shopON==true)
+    {
+      this.repaint();
+      try {
+        Thread.sleep(10);
+      }
+      catch (Exception e){
+        e.printStackTrace();
+      }
+    }
+        while(handGuideON==true)
     {
       this.repaint();
       try {

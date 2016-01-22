@@ -129,5 +129,8 @@ public class Shop
     {
       i.paint(g2d);
     }
+    g.setColor(Color.black);
+    g.setFont(new Font("Courier New", Font.BOLD, 24));
+    g.drawString("Coins: " + ba.coins, 600, 850);
   }
 }

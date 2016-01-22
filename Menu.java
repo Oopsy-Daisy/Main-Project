@@ -93,61 +93,24 @@ public class Menu implements ActionListener, ItemListener {
     menuItem.addActionListener(new BrowseURL());
     menu.add(menuItem);
     
-//        menuItem = new JMenuItem(icon);
-//        menuItem.setMnemonic(KeyEvent.VK_D);
-//        menuItem.addActionListener(this);
-//        menu.add(menuItem);
-    
-//        //a group of radio button menu items
-//        menu.addSeparator();
-//        ButtonGroup group = new ButtonGroup();
-//
-//        rbMenuItem = new JRadioButtonMenuItem("A radio button menu item");
-//        rbMenuItem.setSelected(true);
-//        rbMenuItem.setMnemonic(KeyEvent.VK_R);
-//        group.add(rbMenuItem);
-//        rbMenuItem.addActionListener(this);
-//        menu.add(rbMenuItem);
-//
-//        rbMenuItem = new JRadioButtonMenuItem("Another one");
-//        rbMenuItem.setMnemonic(KeyEvent.VK_O);
-//        group.add(rbMenuItem);
-//        rbMenuItem.addActionListener(this);
-//        menu.add(rbMenuItem);
-//
-//        //a group of check box menu items
-//        menu.addSeparator();
-//        cbMenuItem = new JCheckBoxMenuItem("A check box menu item");
-//        cbMenuItem.setMnemonic(KeyEvent.VK_C);
-//        cbMenuItem.addItemListener(this);
-//        menu.add(cbMenuItem);
-//
-//        cbMenuItem = new JCheckBoxMenuItem("Another one");
-//        cbMenuItem.setMnemonic(KeyEvent.VK_H);
-//        cbMenuItem.addItemListener(this);
-//        menu.add(cbMenuItem);
-//
-//        //a submenu
-//        menu.addSeparator();
-//        submenu = new JMenu("A submenu");
-//        submenu.setMnemonic(KeyEvent.VK_S);
-//
-//        menuItem = new JMenuItem("An item in the submenu");
-//        menuItem.setAccelerator(KeyStroke.getKeyStroke(
-//                KeyEvent.VK_2, ActionEvent.ALT_MASK));
-//        menuItem.addActionListener(this);
-//        submenu.add(menuItem);
-//
-//        menuItem = new JMenuItem("Another item");
-//        menuItem.addActionListener(this);
-//        submenu.add(menuItem);
-//        menu.add(submenu);
+//    if(Main.musicON==true)
+//    {
+//      icon = createImageIcon("pause.png");
+//      menuItem = new JMenuItem("Pause Music", icon);
+//      menuItem.addActionListener(new PauseButton());
+//      menu.add(menuItem);
+//    }
+//    
+//    if(Main.musicON==false)
+//    {
+//      icon = createImageIcon("play.png");
+//      menuItem = new JMenuItem("Play Music", icon);
+//      menuItem.addActionListener(new PlayButton());
+//      menu.add(menuItem);
+//    }
     
     //Build second menu in the menu bar.
     menu = new JMenu("Typing");
-//        menu.setMnemonic(KeyEvent.VK_N);
-//        menu.getAccessibleContext().setAccessibleDescription(
-//                "This menu does nothing");
     menuBar.add(menu);
     
     icon = createImageIcon("lessons.png");
@@ -155,16 +118,8 @@ public class Menu implements ActionListener, ItemListener {
     menuItem.addActionListener(new TypingButton());
     menu.add(menuItem);
     
-//    icon = createImageIcon("challenges.png");
-//    menuItem = new JMenuItem("Challenges", icon);
-//    menuItem.addActionListener(this);
-//    menu.add(menuItem);
-    
     //Build third menu in the menu bar.
-    menu = new JMenu("Plant");
-//        menu.setMnemonic(KeyEvent.VK_N);
-//        menu.getAccessibleContext().setAccessibleDescription(
-//                "This menu does nothing");
+    menu = new JMenu("Garden & Shop");
     menuBar.add(menu);
     
     icon = createImageIcon("garden.png");
@@ -189,46 +144,16 @@ public class Menu implements ActionListener, ItemListener {
   }
   
   public void actionPerformed(ActionEvent e) {
-//    JMenuItem source = (JMenuItem)(e.getSource());
-    System.out.println("ClickMade");
   }
   
   public void itemStateChanged(ItemEvent e) {
-//    JMenuItem source = (JMenuItem)(e.getSource());
-//        String s = "Item event detected."
-//                   + newline
-//                   + "    Event source: " + source.getText()
-//                   + newline
-//                   + "    New state: "
-//                   + ((e.getStateChange() == ItemEvent.SELECTED) ?
-//                     "selected":"unselected");
-//        output.append(s + newline);
-//        output.setCaretPosition(output.getDocument().getLength());
   }
   
   public Container createContentPane() {
-//        //Create the content-pane-to-be.
     JPanel contentPane = new JPanel(new BorderLayout());
-//        contentPane.setOpaque(true);
-// 
-//        //Create a scrolled text area.
-//        output = new JTextArea(5, 30);
-//        output.setEditable(false);
-//        scrollPane = new JScrollPane(output);
-// 
-//        //Add the text area to the content pane.
-//        contentPane.add(scrollPane, BorderLayout.CENTER);
-// 
     return contentPane;
   }
-//
-//    // Returns just the class name -- no package info.
-//    protected String getClassName(Object o) {
-//        String classString = o.getClass().getName();
-//        int dotIndex = classString.lastIndexOf(".");
-//        return classString.substring(dotIndex+1);
-//    }
-  
+
   /** Returns an ImageIcon, or null if the path was invalid. */
   protected static ImageIcon createImageIcon(String path) {
     java.net.URL imgURL = Menu.class.getResource(path);
@@ -266,6 +191,25 @@ class ExitButton implements ActionListener {
   }
 }
 
+//class PauseButton implements ActionListener {
+//  public PauseButton() {
+//    
+//  }
+//  public void actionPerformed(ActionEvent e) {
+//    System.out.println("Song Paused");
+//    Main.musicON=false;
+//  }
+//}
+//
+//class PlayButton implements ActionListener {
+//  public PlayButton() {
+//  }
+//  public void actionPerformed(ActionEvent e) {
+//    Main.musicON=true;
+//    
+//  }
+//}
+
 class TypingButton implements ActionListener {
   public TypingButton() {
     
@@ -285,6 +229,7 @@ class HelpButton implements ActionListener {
     
   }
   public void actionPerformed(ActionEvent e) {
+    Main.handGuideON=true;
   }
 }
 
