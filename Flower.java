@@ -25,7 +25,7 @@ public class Flower extends JPanel
 //    BufferedImage green = null;
 //    BufferedImage pink = null;
 //  
-  public Flower(int plotX,int plotY,boolean isAlive,Challenges chall, Main ba){
+  public Flower(int plotX,int plotY,boolean isAlive,Challenges chall, Main ba, Garden gar){
     this.ba=ba;
     this.chall = chall;
     this.gar = gar;
