@@ -48,7 +48,7 @@ public class Main extends JPanel
   public static ArrayList<Item> currentInventory = new ArrayList<Item>();
   public static int coins = 0;
   public static int fertilizerInventory = 0;
-  private Garden garden = new Garden(this);
+  private Garden garden = new Garden();
   private static PlayMusic playMusic = new PlayMusic();
   public static boolean handGuideON=false;
   private UserHandGuide guide = new UserHandGuide();

@@ -34,11 +34,11 @@ public class Shop
   public Shop()
   {
     this.ba=ba;
-    availableItems.add(new Item("orangeFlower.png", 150, 70,"orange"));
-    unavailableItems.add(new Item("blueFlower.png", 350, 100,"blue"));
-    unavailableItems.add(new Item("greenFlower.png", 550, 75,"green"));
-    unavailableItems.add(new Item("pinkFlower.png", 750, 98,"pink"));
-    unavailableItems.add(new Item("fertilizer.png", 950, 135,""));
+    availableItems.add(new Item("orangeFlower.png", 150, 70));
+    unavailableItems.add(new Item("blueFlower.png", 350, 100));
+    unavailableItems.add(new Item("greenFlower.png", 550, 75));
+    unavailableItems.add(new Item("pinkFlower.png", 750, 98));
+    unavailableItems.add(new Item("fertilizer.png", 950, 135));
   }
   
   public static void updateItemsAvail()
@@ -66,22 +66,22 @@ public class Shop
     if(ableToBuyItem(availableItems, "orangeFlower.png", x, y, 1) == true)
     {
       ba.coins = ba.coins-1;
-      ba.currentInventory.add(new Item("orangeFlower.png", 50, 50, "orange"));
+      ba.currentInventory.add(new Item("orangeFlower.png", 50, 50));
     }
     if(ableToBuyItem(availableItems, "blueFlower.png", x, y, 2) == true)
     {
       ba.coins = ba.coins-2;
-      ba.currentInventory.add(new Item("blueFlower.png", 150, 50, "blue"));
+      ba.currentInventory.add(new Item("blueFlower.png", 150, 50));
     }
     if(ableToBuyItem(availableItems, "greenFlower.png", x, y, 3) == true)
     {
       ba.coins = ba.coins-3;
-      ba.currentInventory.add(new Item("greenFlower.png", 250, 50, "green"));
+      ba.currentInventory.add(new Item("greenFlower.png", 250, 50));
     }
     if(ableToBuyItem(availableItems, "pinkFlower.png", x, y, 3) == true)
     {
       ba.coins = ba.coins-3;
-      ba.currentInventory.add(new Item("pinkFlower.png", 350, 50, "pink"));
+      ba.currentInventory.add(new Item("pinkFlower.png", 350, 50));
     }
     if(ableToBuyItem(availableItems, "fertilizer.png", x, y, 2) == true)
     {

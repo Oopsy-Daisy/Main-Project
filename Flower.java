@@ -15,9 +15,9 @@ public class Flower extends JPanel
   private String img;
   public int plotX  = 0;
   public int plotY = 0;
-  private boolean isAlive = false;
-  private int currentF = 0; //updates everytime a new flower is planted or dies
-  Flower[] flowers = new Flower[5];//colour depends on seeds
+  public boolean isAlive = false;
+  public int currentF = 0; //updates everytime a new flower is planted or dies
+  static Flower[] flowers = new Flower[5];//colour depends on seeds
   private Main ba;
   private Challenges chall;
   
@@ -28,7 +28,6 @@ public class Flower extends JPanel
     flowers[1] = new Flower (20,10,false,chall,ba);
     flowers[2] = new Flower (30,10,false,chall,ba);
   }
-  
   
   public void die(){
     //set isAlive to false, checks the accuracy of the challenge; if below 50%, kill flower
