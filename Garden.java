@@ -25,11 +25,12 @@ public class Garden extends JPanel
     this.ba=ba;
     this.chall = chall;
 //    this.F=F;
-    flowers[0] = new Flower (10,10,false,chall,ba);
-    flowers[1] = new Flower (20,10,false,chall,ba);
-    flowers[2] = new Flower (30,10,false,chall,ba);
-    flowers[3] = new Flower (40,10,false,chall,ba);
-    flowers[4] = new Flower (50,10,false,chall,ba);
+     flowers[0] = new Flower (10,10,false,chall,ba,this);
+    flowers[1] = new Flower (20,10,false,chall,ba,this);
+    flowers[2] = new Flower (30,10,false,chall,ba,this);
+    flowers[3] = new Flower (40,10,false,chall,ba,this);
+    flowers[4] = new Flower (50,10,false,chall,ba,this);
+    flowers[5] = new Flower (60,10,false,chall,ba,this);
   }
   
   
