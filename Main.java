@@ -36,9 +36,8 @@ public class Main extends JPanel
   //Overall Variables from Class Diagram
   private Typing type = new Typing(this);
   public static int lessonNumb=0;
-  public static int lessonsDone=25;
+  public static int lessonsDone=0;
   public static Boolean typingDone = false;
-  private Challenges challenge = new Challenges(this);
   public static boolean lessonsON=false;
   public static boolean challengeON=false;
   private Shop shop = new Shop();
@@ -53,6 +52,7 @@ public class Main extends JPanel
   private UserHandGuide guide = new UserHandGuide();
   public static boolean musicON=true;
   public static boolean gardenON=false;
+  private Challenges challenge = new Challenges(this,garden);
   
   public Main ()
   {
