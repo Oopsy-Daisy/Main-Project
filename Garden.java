@@ -14,13 +14,14 @@ public class Garden
 {
   private Challenges chall;
   private Main ba;
-  private static ArrayList<Flower> gardenPlot = new ArrayList<Flower>();
+  public static ArrayList<Flower> gardenPlot = new ArrayList<Flower>();
   BufferedImage orange = null;
   BufferedImage blue = null;
   BufferedImage green = null;
   BufferedImage pink = null;
   int x=275;
   int y=750;
+  int nextFlower=0;
   
   
   public Garden()
@@ -32,9 +33,19 @@ public class Garden
   {
     if (ba.currentInventory.size()!=0)
     {
-      if (x+ba.currentInventory.get(0).getWidth()<=1280)
+      if (gardenPlot.size()<10)
       {
-        gardenPlot.add(new Flower(x,y, true, ba.currentInventory.get(0).getName()));
+        if (x+ba.currentInventory.get(0).getWidth()<=1280)
+        {
+          gardenPlot.add(new Flower(x,y, true, ba.currentInventory.get(0).getName()));
+          x=x+ba.currentInventory.get(0).getWidth();
+          Main.currentInventory.remove(0);
+        }
+      }
+      else
+      {
+        gardenPlot.add(new Flower(gardenPlot.get(0).plotX,y, true, ba.currentInventory.get(0).getName()));
+        gardenPlot.remove(0);
         x=x+ba.currentInventory.get(0).getWidth();
         Main.currentInventory.remove(0);
       }
