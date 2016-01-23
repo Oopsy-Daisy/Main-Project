@@ -12,15 +12,15 @@ import java.util.ArrayList;
 //import java.awt.event.MouseListener;
 //import java.awt.event.MouseEvent;
 import java.awt.*;
-import javax.swing.*;
-import javax.imageio.*;
-import java.io.*;
-import java.awt.Image;
-import java.awt.image.BufferedImage;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.*;
-import java.awt.Graphics2D;
+//import javax.swing.*;
+//import javax.imageio.*;
+//import java.io.*;
+//import java.awt.Image;
+//import java.awt.image.BufferedImage;
+//import java.awt.event.KeyEvent;
+//import java.awt.event.KeyListener;
+//import java.awt.event.*;
+//import java.awt.Graphics2D;
 
 public class Shop
 {  
@@ -29,11 +29,11 @@ public class Shop
   //Method to sell items and to buy back items from user
   private static ArrayList<Item> availableItems = new ArrayList<Item>();
   private static ArrayList<Item>  unavailableItems = new ArrayList<Item>();
-   private static Main ba;
+  //private static Main ba;
   
   public Shop()
   {
-    this.ba=ba;
+//    this.ba=ba;
     availableItems.add(new Item("orangeFlower.png", 150, 70));
     unavailableItems.add(new Item("blueFlower.png", 350, 100));
     unavailableItems.add(new Item("greenFlower.png", 550, 75));
@@ -43,19 +43,19 @@ public class Shop
   
   public static void updateItemsAvail()
   {
-    if ((ba.lessonsDone/3)>=1)
+    if ((Main.lessonsDone/3)>=1)
     {
       availableItems.add(unavailableItems.get(0));
     }
-    if ((ba.lessonsDone/3)>=2)
+    if ((Main.lessonsDone/3)>=2)
     {
       availableItems.add(unavailableItems.get(1));
     }
-    if ((ba.lessonsDone/3)>=3)
+    if ((Main.lessonsDone/3)>=3)
     {
       availableItems.add(unavailableItems.get(2));
     }
-    if ((ba.lessonsDone/3)>=4)
+    if ((Main.lessonsDone/3)>=4)
     {
       availableItems.add(unavailableItems.get(3));
     }
@@ -65,28 +65,28 @@ public class Shop
   {
     if(ableToBuyItem(availableItems, "orangeFlower.png", x, y, 1) == true)
     {
-      ba.coins = ba.coins-1;
-      ba.currentInventory.add(new Item("orangeFlower.png", 50, 50));
+      Main.coins = Main.coins-1;
+      Main.currentInventory.add(new Item("orangeFlower.png", 50, 50));
     }
     if(ableToBuyItem(availableItems, "blueFlower.png", x, y, 2) == true)
     {
-      ba.coins = ba.coins-2;
-      ba.currentInventory.add(new Item("blueFlower.png", 150, 50));
+      Main.coins = Main.coins-2;
+      Main.currentInventory.add(new Item("blueFlower.png", 150, 50));
     }
     if(ableToBuyItem(availableItems, "greenFlower.png", x, y, 3) == true)
     {
-      ba.coins = ba.coins-3;
-      ba.currentInventory.add(new Item("greenFlower.png", 250, 50));
+      Main.coins = Main.coins-3;
+      Main.currentInventory.add(new Item("greenFlower.png", 250, 50));
     }
     if(ableToBuyItem(availableItems, "pinkFlower.png", x, y, 3) == true)
     {
-      ba.coins = ba.coins-3;
-      ba.currentInventory.add(new Item("pinkFlower.png", 350, 50));
+      Main.coins = Main.coins-3;
+      Main.currentInventory.add(new Item("pinkFlower.png", 350, 50));
     }
-    if(ableToBuyItem(availableItems, "fertilizer.png", x, y, 2) == true)
+    if(ableToBuyItem(availableItems, "fertilizer.png", x, y, 10) == true)
     {
-      ba.coins = ba.coins-2;
-      ba.fertilizerInventory++;
+      Main.coins = Main.coins-10;
+      Main.fertilizerInventory++;
       //Main.currentInventory.add(new Item("fertilizer.png", 50, 50));
     }
   }
@@ -98,7 +98,7 @@ public class Shop
         {
           if (y>=item.getY()&& y<=item.getY()+item.getHeight())
           {
-            if(ba.coins>=price)
+            if(Main.coins>=price)
             {
               return true;
             }
@@ -126,6 +126,6 @@ public class Shop
     }
     g.setColor(Color.black);
     g.setFont(new Font("Courier New", Font.BOLD, 24));
-    g.drawString("Coins: " + ba.coins, 600, 850);
+    g.drawString("Coins: " + Main.coins, 600, 850);
   }
 }

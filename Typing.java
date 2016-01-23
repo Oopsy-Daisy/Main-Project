@@ -20,7 +20,7 @@ public class Typing
   
   String line;
   boolean shiftPressed=false;
-  private Main ba;
+  //private Main ba;
   int charNumb=0;
   boolean typed=false;
   boolean lessonCounted=false;
@@ -34,7 +34,6 @@ public class Typing
   
   public Typing(Main ba)
   {
-    this.ba=ba;
     try
     {
       //Create a new instance of the FileReader and pass it the
@@ -337,14 +336,14 @@ public class Typing
       }
       else if (lessonCounted==false)
       {
-        ba.lessonsDone++;
+        Main.lessonsDone++;
         lessonCounted=true;
         Main.typingDone = true;
         
       }
       x=2;
       g.setColor(Color.white);
-        g.fillRect (0, 475, 1280, 50);
+      g.fillRect (0, 475, 1280, 50);
       for (int i1 = 0; i1 < colourChars.size(); i1++)
       {
         fontSize = 11;

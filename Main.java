@@ -1,8 +1,8 @@
 import java.awt.*;
-import javax.swing.*;
+//import javax.swing.*;
 import javax.imageio.*;
 import java.io.*;
-import java.awt.Image;
+//import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -26,9 +26,9 @@ import javax.swing.JFrame;
 //import java.util.TimerTask;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseEvent;
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
+//import javax.sound.sampled.AudioInputStream;
+//import javax.sound.sampled.AudioSystem;
+//import javax.sound.sampled.Clip;
 import java.util.ArrayList;
 
 public class Main extends JPanel

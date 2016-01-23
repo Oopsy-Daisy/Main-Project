@@ -58,7 +58,7 @@ public class Menu implements ActionListener, ItemListener {
   
   public JMenuBar createMenuBar() {
     JMenuBar menuBar;
-    JMenu menu, submenu;
+    JMenu menu;
     JMenuItem menuItem;
 //    JRadioButtonMenuItem rbMenuItem;
 //    JCheckBoxMenuItem cbMenuItem;

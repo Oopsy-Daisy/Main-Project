@@ -1,19 +1,19 @@
-import java.awt.*;
-import javax.swing.*;
-import javax.imageio.*;
-import java.io.*;
-import java.awt.Image;
+//import java.awt.*;
+//import javax.swing.*;
+//import javax.imageio.*;
+//import java.io.*;
+//import java.awt.Image;
 import java.awt.image.BufferedImage;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.*;
+//import java.awt.event.KeyEvent;
+////import java.awt.event.KeyListener;
+//import java.awt.event.*;
 import java.awt.Graphics2D;
 import java.util.ArrayList;
 
 public class Garden 
 {
-  private Challenges chall;
-  private Main ba;
+//  private Challenges chall;
+//  private Main ba;
   public static ArrayList<Flower> gardenPlot = new ArrayList<Flower>();
   BufferedImage orange = null;
   BufferedImage blue = null;
@@ -31,22 +31,22 @@ public class Garden
   
   public void plantFlower()
   {
-    if (ba.currentInventory.size()!=0)
+    if (Main.currentInventory.size()!=0)
     {
       if (gardenPlot.size()<10)
       {
-        if (x+ba.currentInventory.get(0).getWidth()<=1280)
+        if (x+Main.currentInventory.get(0).getWidth()<=1280)
         {
-          gardenPlot.add(new Flower(x,y, true, ba.currentInventory.get(0).getName()));
-          x=x+ba.currentInventory.get(0).getWidth();
+          gardenPlot.add(new Flower(x,y, true, Main.currentInventory.get(0).getName()));
+          x=x+Main.currentInventory.get(0).getWidth();
           Main.currentInventory.remove(0);
         }
       }
       else
       {
-        gardenPlot.add(new Flower(gardenPlot.get(0).plotX,y, true, ba.currentInventory.get(0).getName()));
+        gardenPlot.add(new Flower(gardenPlot.get(0).plotX,y, true, Main.currentInventory.get(0).getName()));
         gardenPlot.remove(0);
-        x=x+ba.currentInventory.get(0).getWidth();
+        x=x+Main.currentInventory.get(0).getWidth();
         Main.currentInventory.remove(0);
       }
     }

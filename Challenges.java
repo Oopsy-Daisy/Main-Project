@@ -19,7 +19,7 @@ public class Challenges
   //Timer timer;
   String line;
   boolean shiftPressed=false;
-  private Main ba;
+  //private Main ba;
   int charNumb=0;
   boolean typed=false;
   String typedChar="kjsfdhsg";
@@ -34,12 +34,12 @@ public class Challenges
   double acc=0;
   boolean challengeDone=false;
   int randChall=-1;
-  private Garden garden;
+  //private Garden garden;
   
   public Challenges(Main ba, Garden garden)
   {
-    this.ba=ba;
-    this.garden=garden;
+//    this.ba=ba;
+//    this.garden=garden;
     try
     {
       //Create a new instance of the FileReader and pass it the
@@ -360,7 +360,7 @@ public class Challenges
         acc = Math.floor(correctChars/(correctChars+incorrectChars)*100);
         if (acc>=80)
         {
-          ba.coins++;
+          Main.coins++;
         }
         if (acc<50&&ba.fertilizerInventory>0)
         {
@@ -368,7 +368,7 @@ public class Challenges
         }
         if (acc<50&&ba.fertilizerInventory==0)
         {
-          garden.gardenPlot.clear();
+          Garden.gardenPlot.clear();
         }
       }
       x=2;
