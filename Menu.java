@@ -127,7 +127,7 @@ public class Menu implements ActionListener, ItemListener {
     menuItem.addActionListener(new GardenButton());
     menu.add(menuItem);
     
-    icon = createImageIcon("garden.png");
+    icon = createImageIcon("flag.png");
     menuItem = new JMenuItem("Plant seed", icon);
     menuItem.addActionListener(new PlantSeed());
     menu.add(menuItem);
