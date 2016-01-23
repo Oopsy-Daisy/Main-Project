@@ -124,7 +124,12 @@ public class Menu implements ActionListener, ItemListener {
     
     icon = createImageIcon("garden.png");
     menuItem = new JMenuItem("Garden", icon);
-    menuItem.addActionListener(this);
+    menuItem.addActionListener(new GardenButton());
+    menu.add(menuItem);
+    
+    icon = createImageIcon("garden.png");
+    menuItem = new JMenuItem("Plant seed", icon);
+    menuItem.addActionListener(new PlantSeed());
     menu.add(menuItem);
     
     icon = createImageIcon("shop.png");
@@ -153,7 +158,7 @@ public class Menu implements ActionListener, ItemListener {
     JPanel contentPane = new JPanel(new BorderLayout());
     return contentPane;
   }
-
+  
   /** Returns an ImageIcon, or null if the path was invalid. */
   protected static ImageIcon createImageIcon(String path) {
     java.net.URL imgURL = Menu.class.getResource(path);
@@ -179,6 +184,25 @@ class AccessShop implements ActionListener {
     }
   }
 }
+
+class PlantSeed implements ActionListener {
+  public PlantSeed() {
+    
+  }
+  public void actionPerformed(ActionEvent e) {
+    Main.garden.plantFlower();
+  }
+}
+
+class GardenButton implements ActionListener {
+  public GardenButton() {
+    
+  }
+  public void actionPerformed(ActionEvent e) {
+    Main.gardenON=true;
+  }
+}
+
 class ExitButton implements ActionListener {
   public ExitButton() {
     
