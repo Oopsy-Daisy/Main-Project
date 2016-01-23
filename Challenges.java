@@ -19,7 +19,7 @@ public class Challenges
   //Timer timer;
   String line;
   boolean shiftPressed=false;
-  //private Main ba;
+  private Main ba;
   int charNumb=0;
   boolean typed=false;
   String typedChar="kjsfdhsg";
@@ -34,17 +34,17 @@ public class Challenges
   double acc=0;
   boolean challengeDone=false;
   int randChall=-1;
-  //private Garden garden;
+  private Garden garden;
   
   public Challenges(Main ba, Garden garden)
   {
-//    this.ba=ba;
-//    this.garden=garden;
+    this.ba=ba;
+    this.garden=garden;
     try
     {
       //Create a new instance of the FileReader and pass it the
       //file that needs to be read
-      FileReader fr = new FileReader("Word List.txt");
+      FileReader fr = new FileReader("Challenge List.txt");
       //Create a new instance of the BufferedReader and
       //add the FileReader to it
       BufferedReader br = new BufferedReader(fr);
@@ -360,7 +360,7 @@ public class Challenges
         acc = Math.floor(correctChars/(correctChars+incorrectChars)*100);
         if (acc>=80)
         {
-          Main.coins++;
+          ba.coins++;
         }
         if (acc<50&&ba.fertilizerInventory>0)
         {
@@ -368,7 +368,7 @@ public class Challenges
         }
         if (acc<50&&ba.fertilizerInventory==0)
         {
-          Garden.gardenPlot.clear();
+          garden.gardenPlot.clear();
         }
       }
       x=2;
