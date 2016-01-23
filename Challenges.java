@@ -362,11 +362,11 @@ public class Challenges
         {
           Main.coins++;
         }
-        if (acc<50&&ba.fertilizerInventory>0)
+        if (acc<50&&Main.fertilizerInventory>0)
         {
-          ba.fertilizerInventory--;
+          Main.fertilizerInventory--;
         }
-        if (acc<50&&ba.fertilizerInventory==0)
+        if (acc<50&&Main.fertilizerInventory==0)
         {
           Garden.gardenPlot.clear();
         }
