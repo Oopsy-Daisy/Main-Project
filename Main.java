@@ -38,7 +38,6 @@ public class Main extends JPanel
   public static int lessonNumb=0;
   public static int lessonsDone=0;
   public static Boolean typingDone = false;
-  private Challenges challenge = new Challenges(this);
   public static boolean lessonsON=false;
   public static boolean challengeON=false;
   private Shop shop = new Shop();
@@ -47,11 +46,13 @@ public class Main extends JPanel
   public static ArrayList<Item> currentInventory = new ArrayList<Item>();
   public static int coins = 500;
   public static int fertilizerInventory = 0;
-  private Garden garden = new Garden();
+  public static Garden garden = new Garden();
   private static PlayMusic playMusic = new PlayMusic();
   public static boolean handGuideON=false;
   private UserHandGuide guide = new UserHandGuide();
   public static boolean musicON=true;
+  public static boolean gardenON=false;
+  private Challenges challenge = new Challenges(this,garden);
   
   public Main ()
   {
@@ -82,7 +83,7 @@ public class Main extends JPanel
         }
         if (((e.getX()>=450&&e.getX()<=745)&&(e.getY()>=800&&e.getY()<=893)) && challengeON==false)
         {
-          if(lessonsON==false && shopON==false && challengeON==false)
+          if(lessonsON==false && shopON==false && challengeON==false && gardenON==false)
           {
             lessonsON=true;
           }
@@ -92,6 +93,7 @@ public class Main extends JPanel
           lessonsON=false;
           shopON=false;
           handGuideON=false;
+          gardenON=false;
         }
       }
       
@@ -129,7 +131,6 @@ public class Main extends JPanel
       lesson = ImageIO.read(new File("lessonButton.png"));
     } catch (IOException e){
     }
-    garden.paint(g2d);
     
     if (lessonsON==true)
     {
@@ -147,7 +148,11 @@ public class Main extends JPanel
     {
       guide.paint(g2d);
     }
-    if (lessonsON==false && shopON==false && challengeON==false && handGuideON==false)
+    if (gardenON==true)
+    {
+      garden.paint(g2d);
+    }
+    if (lessonsON==false && shopON==false && challengeON==false && handGuideON==false && gardenON==false)
     {
       g.drawImage(back,25,775,null);
       g.drawImage(lesson,450, 800, null);
@@ -231,6 +236,16 @@ public class Main extends JPanel
       }
     }
     while(handGuideON==true)
+    {
+      this.repaint();
+      try {
+        Thread.sleep(10);
+      }
+      catch (Exception e){
+        e.printStackTrace();
+      }
+    }
+    while(gardenON==true)
     {
       this.repaint();
       try {

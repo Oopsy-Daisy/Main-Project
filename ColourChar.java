@@ -6,7 +6,7 @@ public class ColourChar
   public Color theColour; 
   
   public ColourChar(char c, Color col){
-  theChar = c;
-  theColour = col;
+    theChar = c;
+    theColour = col;
   }
 }
