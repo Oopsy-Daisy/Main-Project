@@ -83,16 +83,21 @@ public class Main extends JPanel
         }
         if (((e.getX()>=450&&e.getX()<=745)&&(e.getY()>=800&&e.getY()<=893)) && challengeON==false)
         {
-          if(lessonsON==false && shopON==false && challengeON==false && gardenON==false)
+          if(lessonsON==false && shopON==false && challengeON==false && gardenON==false && handGuideON==false)
           {
             lessonsON=true;
+            handGuideON=true;
+            challengeON=false;
+            shopON=false;
+            gardenON=false;
           }
         }  
         if (((e.getX()>=25&&e.getX()<=175)&&(e.getY()>=775&&e.getY()<=899)) && challengeON==false)
         {
-          lessonsON=false;
-          shopON=false;
           handGuideON=false;
+          challengeON=false;
+          shopON=false;
+          lessonsON=false;
           gardenON=false;
         }
       }

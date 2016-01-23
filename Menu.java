@@ -178,9 +178,11 @@ class AccessShop implements ActionListener {
   public void actionPerformed(ActionEvent e) {
     if(Main.challengeON!=true)
     {
+      Main.handGuideON=false;
+      Main.challengeON=false;
       Main.shopON=true;
       Main.lessonsON=false;
-      Main.challengeON=false;
+      Main.gardenON=false;
     }
   }
 }
@@ -199,6 +201,10 @@ class GardenButton implements ActionListener {
     
   }
   public void actionPerformed(ActionEvent e) {
+    Main.handGuideON=false;
+    Main.challengeON=false;
+    Main.shopON=false;
+    Main.lessonsON=false;
     Main.gardenON=true;
   }
 }
@@ -241,9 +247,11 @@ class TypingButton implements ActionListener {
   public void actionPerformed(ActionEvent e) {
     if(Main.challengeON!=true)
     {
-      Main.lessonsON=true;
+      Main.handGuideON=false;
       Main.challengeON=false;
       Main.shopON=false;
+      Main.lessonsON=true;
+      Main.gardenON=false;
     }
   }
 }
@@ -254,6 +262,10 @@ class HelpButton implements ActionListener {
   }
   public void actionPerformed(ActionEvent e) {
     Main.handGuideON=true;
+    Main.challengeON=false;
+    Main.shopON=false;
+    Main.lessonsON=false;
+    Main.gardenON=false;
   }
 }
 
