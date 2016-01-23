@@ -362,7 +362,11 @@ public class Challenges
         {
           ba.coins++;
         }
-        if (acc<50)
+        if (acc<50&&ba.fertilizerInventory>0)
+        {
+          ba.fertilizerInventory--;
+        }
+        if (acc<50&&ba.fertilizerInventory==0)
         {
           garden.gardenPlot.clear();
         }
