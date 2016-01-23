@@ -1,8 +1,8 @@
 import java.awt.*;
-//import javax.swing.*;
+import javax.swing.*;
 import javax.imageio.*;
 import java.io.*;
-//import java.awt.Image;
+import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -26,9 +26,9 @@ import javax.swing.JFrame;
 //import java.util.TimerTask;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseEvent;
-//import javax.sound.sampled.AudioInputStream;
-//import javax.sound.sampled.AudioSystem;
-//import javax.sound.sampled.Clip;
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import java.util.ArrayList;
 
 public class Main extends JPanel
@@ -83,21 +83,16 @@ public class Main extends JPanel
         }
         if (((e.getX()>=450&&e.getX()<=745)&&(e.getY()>=800&&e.getY()<=893)) && challengeON==false)
         {
-          if(lessonsON==false && shopON==false && challengeON==false && gardenON==false && handGuideON==false)
+          if(lessonsON==false && shopON==false && challengeON==false && gardenON==false)
           {
             lessonsON=true;
-            handGuideON=true;
-            challengeON=false;
-            shopON=false;
-            gardenON=false;
           }
         }  
         if (((e.getX()>=25&&e.getX()<=175)&&(e.getY()>=775&&e.getY()<=899)) && challengeON==false)
         {
-          handGuideON=false;
-          challengeON=false;
-          shopON=false;
           lessonsON=false;
+          shopON=false;
+          handGuideON=false;
           gardenON=false;
         }
       }
